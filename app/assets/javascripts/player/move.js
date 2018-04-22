@@ -11,9 +11,9 @@ var Movement = {
 
 	listen: function () {
 
-		// if (keyW) Movement.y = Player.speed * -1;
+		if (keyW) Movement.y = Player.speed * -1;
 		if (keyA) Movement.x = Player.speed * -1;
-		// if (keyS) Movement.y = Player.speed;
+		if (keyS) Movement.y = Player.speed;
 		if (keyD) Movement.x = Player.speed;
 
 		if (this.x != 0 || this.y != 0) {
@@ -25,7 +25,8 @@ var Movement = {
 		}
 
 		if (jumpKey) {
-			Player.jump(15);
+			// Player.jump(15);
+      // nope, no jumping anymore/
 		} else {
 			// Player.resetJump();
 		}

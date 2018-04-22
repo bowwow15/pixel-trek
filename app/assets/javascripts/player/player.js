@@ -25,7 +25,7 @@ var Player = {
 			case "idle":
 				this.frames = 1;
 
-				if (this.facing == 1) {
+				if (this.facing < 0) {
 					player_sprite = player_idle;
 				} else {
 					player_sprite = player_idle_reversed;
@@ -37,7 +37,7 @@ var Player = {
 			case "running":
 				this.frames = 8;
 
-				if (this.facing == 1) {
+				if (this.facing < 0) {
 					player_sprite = player_run;
 				} else {
 					player_sprite = player_run_reversed;
@@ -49,7 +49,7 @@ var Player = {
 			case "jump":
 				this.frames = 2;
 
-				if (this.facing == 1) {
+				if (this.facing < 0) {
 					player_sprite = player_jump;
 				} else {
 					player_sprite = player_jump_reversed;
@@ -61,7 +61,7 @@ var Player = {
 			case "mid_air":
 				this.frames = 2;
 
-				if (this.facing == 1) {
+				if (this.facing < 0) {
 					player_sprite = player_mid_air;
 				} else {
 					player_sprite = player_mid_air_reversed;
@@ -73,7 +73,7 @@ var Player = {
 			case "landing":
 				this.frames = 1;
 
-				if (this.facing == 1) {
+				if (this.facing < 0) {
 					player_sprite = player_landing;
 				} else {
 					player_sprite = player_landing_reversed;
@@ -93,12 +93,6 @@ var Player = {
 		if (!collision) {
 			this.x += x;
 			this.y += y;
-		}
-
-		if (x < 0) {
-			this.facing = 0;
-		} if (x > 0) {
-			this.facing = 1;
 		}
 
 		if (!this.jumping) {

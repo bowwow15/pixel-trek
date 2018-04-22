@@ -1,6 +1,10 @@
+var Screen = {
+	pixelDensity: 0.5	
+};
+
 var resizeCanvas;
 
-var pixelDensity = 0.5;
+var pixelDensity = Screen.pixelDensity;
 
 resizeCanvas = function () { //resizes canvas to browser window
     var aspectRatio = window.innerWidth / window.innerHeight;
