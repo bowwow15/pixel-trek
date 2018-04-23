@@ -1,8 +1,5 @@
-var playerImage = new Image();
-playerImage.src = "http://pngimg.com/uploads/donald_trump/donald_trump_PNG84.png";
-
 var Player = {
-	x: 10,
+	x: 0,
 	y: Ground.base,
 
 	x_augmented: this.x,
@@ -31,7 +28,7 @@ var Player = {
 					player_sprite = player_idle_reversed;
 				}
 
-				Sprite.draw(player_sprite, this.currentFrame, 21, 33, this.x, this.y, 21, 33, 0);
+				Sprite.draw(player_sprite, this.currentFrame, 21, 33, this.x + View.x, this.y + View.y, 21, 33, 0);
 				break;
 
 			case "running":
@@ -43,7 +40,7 @@ var Player = {
 					player_sprite = player_run_reversed;
 				}
 
-				Sprite.draw(player_sprite, this.currentFrame, 21, 33, this.x, this.y, 21, 33, this.frames);
+				Sprite.draw(player_sprite, this.currentFrame, 21, 33, this.x + View.x, this.y+ View.y, 21, 33, this.frames);
 				break;
 
 			case "jump":
@@ -55,7 +52,7 @@ var Player = {
 					player_sprite = player_jump_reversed;
 				}
 
-				Sprite.draw(player_sprite, this.currentFrame, 17, 34, this.x, this.y, 17, 34, this.frames);
+				Sprite.draw(player_sprite, this.currentFrame, 17, 34, this.x + View.x, this.y+ View.y, 17, 34, this.frames);
 				break;
 
 			case "mid_air":
@@ -67,7 +64,7 @@ var Player = {
 					player_sprite = player_mid_air_reversed;
 				}
 
-				Sprite.draw(player_sprite, this.currentFrame, 20, 35, this.x, this.y, 20, 35, this.frames);
+				Sprite.draw(player_sprite, this.currentFrame, 20, 35, this.x + View.x, this.y+ View.y, 20, 35, this.frames);
 				break;
 
 			case "landing":
@@ -79,7 +76,7 @@ var Player = {
 					player_sprite = player_landing_reversed;
 				}
 
-				Sprite.draw(player_sprite, this.currentFrame, 20, 35, this.x, this.y, 20, 35, this.frames);
+				Sprite.draw(player_sprite, this.currentFrame, 20, 35, this.x + View.x, this.y + View.y, 20, 35, this.frames);
 				break;
 		}
 	},

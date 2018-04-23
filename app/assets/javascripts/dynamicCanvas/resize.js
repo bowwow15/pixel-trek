@@ -1,5 +1,9 @@
 var Screen = {
-	pixelDensity: 0.5	
+	pixelDensity: 0.5,
+
+	toPixelDensity: function (pixels) {
+		return pixels * this.pixelDensity;
+	}
 };
 
 var resizeCanvas;

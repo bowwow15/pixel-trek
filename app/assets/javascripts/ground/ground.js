@@ -1,5 +1,5 @@
 var Ground = {
-	base: canvas.height - 50,
+	base: 0,
 
 	render: function () {
 		

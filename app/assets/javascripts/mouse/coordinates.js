@@ -5,7 +5,10 @@ var MouseCoordinates = {
 	rotation: 0,
 
 	calculatePlayerFacing: function () {
-		this.rotation = Math.atan2(Player.x - (this.x - View.x)*Screen.pixelDensity, - (Player.y - (this.y - View.y)*Screen.pixelDensity) )*(180/Math.PI);
+		let mouse_x_pixel_dens = this.x * Screen.pixelDensity;
+		let mouse_y_pixel_dens = this.y * Screen.pixelDensity;
+
+		this.rotation = Math.atan2(Player.x - (mouse_x_pixel_dens - View.x), - (Player.y - (mouse_y_pixel_dens - View.y)) )*(180/Math.PI);
 
 		Player.facing = this.rotation;
 	}
