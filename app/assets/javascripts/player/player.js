@@ -20,7 +20,7 @@ var Player = {
 
 		switch (this.state) {
 			case "idle":
-				this.frames = 12;
+				this.frames = 0;
 
 				if (this.facing < 0) {
 					player_sprite = player_idle;
