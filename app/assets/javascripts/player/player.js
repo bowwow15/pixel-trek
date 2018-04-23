@@ -85,6 +85,8 @@ var Player = {
 	},
 
 	move: function (x, y) {
+		//calculate direction of player
+		MouseCoordinates.calculatePlayerFacing();
 
 		//check collision with map edges
 
