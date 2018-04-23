@@ -23,6 +23,9 @@ player_landing.src = "images/sprites/player_landing.png";
 var player_landing_reversed = new Image();
 player_landing_reversed.src = "images/sprites/player_landing_reversed.png";
 
+var dirt_tile = new Image();
+dirt_tile.src = "images/sprites/dirt.png";
+
 var grass_tile = new Image();
 
 grass_tile.addEventListener("load", function(e) {
