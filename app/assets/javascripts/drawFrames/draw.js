@@ -5,6 +5,4 @@ var renderFrame = function () {
 	Terrain.draw();
 
 	Player.draw();
-}
-
-document.onload = renderFrame();
+} 

@@ -11,11 +11,3 @@ var Step = {
 		Map.drawAll();
 	}
 };
-
-window.setInterval(function(){
-	Step.step();
-}, 1000/Game.step);
-
-window.setInterval(function(){
-	Step.spriteStep();
-}, 1000/Game.spriteStep);
