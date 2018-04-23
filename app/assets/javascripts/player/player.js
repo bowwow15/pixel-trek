@@ -20,7 +20,7 @@ var Player = {
 
 		switch (this.state) {
 			case "idle":
-				this.frames = 1;
+				this.frames = 12;
 
 				if (this.facing < 0) {
 					player_sprite = player_idle;
@@ -28,7 +28,7 @@ var Player = {
 					player_sprite = player_idle_reversed;
 				}
 
-				Sprite.draw(player_sprite, this.currentFrame, 21, 33, this.x + View.x, this.y + View.y, 21, 33, 0);
+				Sprite.draw(player_sprite, this.currentFrame, 21, 35, this.x + View.x, this.y + View.y, 21, 35, this.frames);
 				break;
 
 			case "running":
@@ -40,7 +40,7 @@ var Player = {
 					player_sprite = player_run_reversed;
 				}
 
-				Sprite.draw(player_sprite, this.currentFrame, 21, 33, this.x + View.x, this.y+ View.y, 21, 33, this.frames);
+				Sprite.draw(player_sprite, this.currentFrame, 23, 35, this.x + View.x, this.y+ View.y, 23, 35, this.frames);
 				break;
 
 			case "jump":
