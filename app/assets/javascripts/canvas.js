@@ -15,3 +15,8 @@ Context.create("canvas");
 var ctx;
 
 ctx = Context.context; //important shorthand notice
+
+
+canvas.oncontextmenu = function (e) {
+    e.preventDefault();
+}; //disable context menu
