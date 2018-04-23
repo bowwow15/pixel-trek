@@ -9,8 +9,6 @@ var Step = {
 		Player.drawJumpAnimations();
 
 		Map.drawAll();
-
-		View.move();
 	}
 };
 

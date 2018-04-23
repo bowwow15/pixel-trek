@@ -10,7 +10,8 @@ var View = {
 		};
 	},
 
-	move: function () {
-		
+	move: function (x, y) {
+		this.x -= x;
+		this.y -= y;
 	}
 };

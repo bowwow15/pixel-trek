@@ -92,6 +92,8 @@ var Player = {
 		if (!collision) {
 			this.x += x;
 			this.y += y;
+
+			View.move(x, y);
 		}
 
 		if (!this.jumping) {
