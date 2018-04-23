@@ -21,11 +21,14 @@ player_jump_reversed.src = "images/sprites/player_jump_reversed.png";
 var player_landing = new Image();
 player_landing.src = "images/sprites/player_landing.png";
 var player_landing_reversed = new Image();
+player_landing_reversed.src = "images/sprites/player_landing_reversed.png";
 
-player_landing_reversed.addEventListener("load", function(e) {
+var grass_tile = new Image();
+
+grass_tile.addEventListener("load", function(e) {
 	window.setTimeout(function () {
 		Game.load();
 	}, 500);
 });
 
-player_landing_reversed.src = "images/sprites/player_landing_reversed.png";
+grass_tile.src = "images/sprites/grass.jpg";
