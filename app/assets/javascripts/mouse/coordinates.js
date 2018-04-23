@@ -11,5 +11,12 @@ var MouseCoordinates = {
 		this.rotation = Math.atan2((Player.x + 9) - (mouse_x_pixel_dens - View.x), - ((Player.y + 17.5) - (mouse_y_pixel_dens - View.y)) )*(180/Math.PI);
 
 		Player.facing = this.rotation;
+	},
+
+	coordsTimesPixelDensity: function () {
+		return {
+			x: MouseCoordinates.x * Screen.pixelDensity,
+			y: MouseCoordinates.y * Screen.pixelDensity
+		}
 	}
 }

@@ -1,3 +1,7 @@
+var cursor_image = new Image();
+cursor_image.src = "images/cursor.png";
+
+
 var player_run = new Image();
 player_run.src = "images/sprites/player_run.png";
 var player_run_reversed = new Image();

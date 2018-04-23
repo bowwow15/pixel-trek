@@ -5,4 +5,7 @@ var renderFrame = function () {
 	Terrain.draw();
 
 	Player.draw();
+
+	//draw cursor
+	Cursor.draw(MouseCoordinates.coordsTimesPixelDensity().x, MouseCoordinates.coordsTimesPixelDensity().y);
 } 
