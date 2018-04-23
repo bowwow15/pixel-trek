@@ -1,6 +1,9 @@
 var cursor_image = new Image();
 cursor_image.src = "images/cursor.png";
 
+var click_image = new Image();
+click_image.src = "images/click.png";
+
 
 var player_run = new Image();
 player_run.src = "images/sprites/player_run.png";
