@@ -18,7 +18,7 @@ var Chunk = {
 		this.load([grass_tile, dirt_tile, grass_tile, grass_tile, grass_tile, grass_tile], 1);
 		this.load([dirt_tile, dirt_tile, dirt_tile, grass_tile, grass_tile, grass_tile], 2);
 		this.load([dirt_tile, dirt_tile, grass_tile, grass_tile, grass_tile, grass_tile], 3);
-		this.load([grass_tile, grass_tile, grass_tile, grass_tile, grass_tile, grass_tile], 4);
-		this.load([grass_tile, grass_tile, grass_tile, grass_tile, grass_tile, grass_tile], 5);
+		this.load([grass_tile, grass_tile, grass_tile, grass_tile, grass_tile, dirt_tile], 4);
+		this.load([grass_tile, grass_tile, grass_tile, grass_tile, dirt_tile, dirt_tile], 5);
 	}
 };
