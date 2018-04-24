@@ -14,11 +14,14 @@ var Chunk = {
 	},
 
 	loadAll: function () {
-		this.load([grass_tile, grass_tile, grass_tile, grass_tile, grass_tile, grass_tile], 0);
-		this.load([grass_tile, dirt_tile, grass_tile, grass_tile, grass_tile, grass_tile], 1);
-		this.load([dirt_tile, dirt_tile, dirt_tile, grass_tile, grass_tile, grass_tile], 2);
-		this.load([dirt_tile, dirt_tile, grass_tile, grass_tile, grass_tile, grass_tile], 3);
-		this.load([grass_tile, grass_tile, grass_tile, grass_tile, grass_tile, dirt_tile], 4);
-		this.load([grass_tile, grass_tile, grass_tile, grass_tile, dirt_tile, dirt_tile], 5);
+		for (row = 0; row < 100; row++) {
+			let terrainArray = [];
+
+			for (i = 0; i < 100; i++) {
+				terrainArray.push(grass_tile);
+			} 
+
+			this.load(terrainArray, row);
+		}
 	}
 };
