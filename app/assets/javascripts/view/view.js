@@ -24,10 +24,12 @@ var View = {
 
 		this.shakeX = 0;
 
+		var randomShake = 2;
+
 		if (this.shakeCounter <= 1) {
-			this.shakeY = 1;
+			this.shakeY = randomShake;  
 		} else {
-			this.shakeY = -2;
+			this.shakeY = -randomShake;
 		}
 
 		this.x += this.shakeX;
