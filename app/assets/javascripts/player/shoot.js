@@ -9,7 +9,7 @@ var Bullet = {
 		let x_velocity = speed * Math.cos((radian) * Math.PI / 180);
 		let y_velocity = speed * Math.sin((radian) * Math.PI / 180);
 
-		expiration = 150; //steps
+		expiration = Date.now() + 1000; //milliceonds
 
 		this.array.push({
 			speed: speed,
@@ -43,8 +43,12 @@ var Bullet = {
 
 	step: function () {
 		this.array.forEach(function (element, index) {
-			Bullet.array[index].x += element.x_velocity;
-			Bullet.array[index].y += element.y_velocity;
+			if (element.expiration > Date.now()) {
+				Bullet.array[index].x += element.x_velocity;
+				Bullet.array[index].y += element.y_velocity;
+			} else {
+				Bullet.array.splice(index, 1); //deletes bullet
+			}
 		});
 	}
 };
