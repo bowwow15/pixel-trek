@@ -7,6 +7,9 @@ click_image.src = "images/click.png";
 var bullet_image = new Image();
 bullet_image.src = "images/sprites/bullet.png";
 
+var blood_hit_sprite = new Image();
+blood_hit_sprite.src = "images/sprites/blood_hit.png";
+
 var player_run = new Image();
 player_run.src = "images/sprites/player_run.png";
 var player_run_reversed = new Image();

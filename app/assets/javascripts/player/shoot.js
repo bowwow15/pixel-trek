@@ -2,7 +2,7 @@ var Bullet = {
 	array: [],
 
 	new: function (type, x, y, radian) {
-		let speed = 15.0; // pixels per step
+		let speed = 20.0; // pixels per step
 
 		radian += 90;
 
@@ -15,8 +15,8 @@ var Bullet = {
 			speed: speed,
 			type: type,
 
-			x: x,
-			y: y,
+			x: x + 11,
+			y: y + 17.5,
 
 			x_velocity: x_velocity,
 			y_velocity: y_velocity,

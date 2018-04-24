@@ -9,5 +9,7 @@ var Sprite = {
 		 } else {
 		 	Player.currentFrame = 0;
 		 }
+
+		if (Particle.currentFrame <= Particle.frames) Particle.currentFrame += 1;
 	}
 };

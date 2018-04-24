@@ -8,6 +8,8 @@ var renderFrame = function () {
 
 	Bullet.drawAll();
 
+	Particle.drawAll();
+
 	//draw cursor
 	Cursor.draw(MouseCoordinates.coordsTimesPixelDensity().x, MouseCoordinates.coordsTimesPixelDensity().y);
 } 
