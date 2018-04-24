@@ -1,5 +1,6 @@
 var Game = {
 	step: 30,
+	smoothStep: 60,
 	spriteStep: 12,
 
 	load: function () {
@@ -10,6 +11,10 @@ var Game = {
 		window.setInterval(function(){
 			Step.spriteStep();
 		}, 1000/Game.spriteStep);
+
+		window.setInterval(function(){
+			Step.smoothStep();
+		}, 1000/Game.smoothStep);
 
 		document.getElementById("loadingScreen").style.display = "none"; //hides loading screen
 

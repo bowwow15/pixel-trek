@@ -4,6 +4,8 @@ function mouseMove (event) {
 
 function mouseDown (event) {
 	Cursor.clicking = true;
+
+	Bullet.new("white", Player.x, Player.y, Player.facing);
 }
 
 function mouseUp (event) {

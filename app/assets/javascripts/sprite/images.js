@@ -4,6 +4,8 @@ cursor_image.src = "images/cursor.png";
 var click_image = new Image();
 click_image.src = "images/click.png";
 
+var bullet_image = new Image();
+bullet_image.src = "images/sprites/bullet.png";
 
 var player_run = new Image();
 player_run.src = "images/sprites/player_run.png";

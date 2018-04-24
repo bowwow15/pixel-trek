@@ -6,6 +6,8 @@ var renderFrame = function () {
 
 	Player.draw();
 
+	Bullet.drawAll();
+
 	//draw cursor
 	Cursor.draw(MouseCoordinates.coordsTimesPixelDensity().x, MouseCoordinates.coordsTimesPixelDensity().y);
 } 

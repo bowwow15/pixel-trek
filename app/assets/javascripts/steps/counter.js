@@ -5,9 +5,9 @@ var Step = {
 
 	step: function () {
 		Movement.listen();
+	},
 
-		Player.drawJumpAnimations();
-
-		Map.drawAll();
+	smoothStep: function () {
+		Bullet.step();
 	}
 };
