@@ -24,6 +24,8 @@ var Bullet = {
 			radian: radian,
 			expiration: expiration
 		});
+
+		Particle.blood(x, y);
 	},
 
 	drawAll: function () {

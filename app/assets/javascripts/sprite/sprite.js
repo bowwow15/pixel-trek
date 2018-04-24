@@ -10,6 +10,12 @@ var Sprite = {
 		 	Player.currentFrame = 0;
 		 }
 
-		if (Particle.currentFrame <= Particle.frames) Particle.currentFrame += 1;
+		Particle.array.forEach(function (element, index) {
+			if (element.frame < Particle.frames) {
+				Particle.array[index].frame += 1;
+			} else {
+				Particle.array[index].splice(index, 1); //delete animation
+			}
+		});
 	}
 };

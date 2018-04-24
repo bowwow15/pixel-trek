@@ -7,18 +7,30 @@ var Chunk = {
 
 		type.forEach(function (element, index) {
 			ctx.beginPath();
-			ctx.drawImage(element, current_tile_x + View.x, current_tile_y + View.y);
+
+			ctx.translate(current_tile_x, current_tile_y);
+			ctx.rotate(element.rotation);
+			ctx.translate(-current_tile_x, -current_tile_y);
+
+			ctx.drawImage(element.tile, current_tile_x + View.x, current_tile_y + View.y);
 
 			current_tile_x += Chunk.tilesize; //offsets each tile by the size of the tile.
+
+			ctx.resetTransform();
 		});
 	},
 
 	loadAll: function () {
-		for (row = 0; row < 100; row++) {
+		for (row = 0; row < 20; row++) {
 			let terrainArray = [];
 
-			for (i = 0; i < 100; i++) {
-				terrainArray.push(grass_tile);
+			let rotation = 0;
+
+			for (i = 0; i < 20; i++) {
+				terrainArray.push({
+					tile: grass_tile,
+					rotation: rotation
+				});
 			} 
 
 			this.load(terrainArray, row);
