@@ -2,6 +2,9 @@ var Player = {
 	x: 0,
 	y: Ground.base,
 
+	x_center: 0,
+	y_center: 0,
+
 	x_augmented: this.x,
 	y_augmented: canvas.height + this.y,
 
@@ -13,6 +16,9 @@ var Player = {
 	state: "idle",
 
 	draw: function () {
+		this.x_center = this.x - 11;
+		this.y_center = this.y - 17;
+
 		ctx.fillStyle = 'red';
 		ctx.beginPath();
 
@@ -28,7 +34,7 @@ var Player = {
 					player_sprite = player_idle_reversed;
 				}
 
-				Sprite.draw(player_sprite, this.currentFrame, 21, 35, this.x + View.x, this.y + View.y, 21, 35, this.frames);
+				Sprite.draw(player_sprite, this.currentFrame, 21, 35, this.x_center + View.x, this.y_center + View.y, 21, 35, this.frames);
 				break;
 
 			case "running":
@@ -40,7 +46,7 @@ var Player = {
 					player_sprite = player_run_reversed;
 				}
 
-				Sprite.draw(player_sprite, this.currentFrame, 23, 35, this.x + View.x, this.y+ View.y, 23, 35, this.frames);
+				Sprite.draw(player_sprite, this.currentFrame, 23, 35, this.x_center + View.x, this.y_center + View.y, 23, 35, this.frames);
 				break;
 
 			case "jump":
@@ -52,7 +58,7 @@ var Player = {
 					player_sprite = player_jump_reversed;
 				}
 
-				Sprite.draw(player_sprite, this.currentFrame, 17, 34, this.x + View.x, this.y+ View.y, 17, 34, this.frames);
+				Sprite.draw(player_sprite, this.currentFrame, 17, 34, this.x_center + View.x, this.y_center + View.y, 17, 34, this.frames);
 				break;
 
 			case "mid_air":
@@ -64,7 +70,7 @@ var Player = {
 					player_sprite = player_mid_air_reversed;
 				}
 
-				Sprite.draw(player_sprite, this.currentFrame, 20, 35, this.x + View.x, this.y+ View.y, 20, 35, this.frames);
+				Sprite.draw(player_sprite, this.currentFrame, 20, 35, this.x_center + View.x, this.y_center + View.y, 20, 35, this.frames);
 				break;
 
 			case "landing":
@@ -76,7 +82,7 @@ var Player = {
 					player_sprite = player_landing_reversed;
 				}
 
-				Sprite.draw(player_sprite, this.currentFrame, 20, 35, this.x + View.x, this.y + View.y, 20, 35, this.frames);
+				Sprite.draw(player_sprite, this.currentFrame, 20, 35, this.x_center + View.x, this.y_center + View.y, 20, 35, this.frames);
 				break;
 		}
 	},

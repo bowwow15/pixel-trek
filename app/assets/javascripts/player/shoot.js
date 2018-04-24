@@ -4,7 +4,7 @@ var Bullet = {
 	new: function (type, x, y, radian) {
 		let speed = 20.0; // pixels per step
 
-		radian += 90;
+		radian += 89.67;
 
 		let x_velocity = speed * Math.cos((radian) * Math.PI / 180);
 		let y_velocity = speed * Math.sin((radian) * Math.PI / 180);
@@ -15,8 +15,8 @@ var Bullet = {
 			speed: speed,
 			type: type,
 
-			x: x + 11,
-			y: y + 17.5,
+			x: x,
+			y: y,
 
 			x_velocity: x_velocity,
 			y_velocity: y_velocity,
