@@ -44,13 +44,25 @@ function onKeyDown(event) {
   	case 68: //d
       keyD = true;
       break;
+    case 39: //right
+      keyD = true;
+      break;
     case 83: //s
+      keyS = true;
+      break;
+    case 40: //down
       keyS = true;
       break;
     case 65: //a
       keyA = true;
       break;
+    case 37: //left
+      keyA = true;
+      break;
     case 87: //w
+      keyW = true;
+      break;
+    case 38: //up
       keyW = true;
       break;
     case 32:
@@ -66,13 +78,25 @@ function onKeyUp(event) {
   	case 68: //d
       keyD = false;
       break;
+    case 39: //right
+      keyD = false;
+      break;
     case 83: //s
+      keyS = false;
+      break;
+    case 40: //down
       keyS = false;
       break;
     case 65: //a
       keyA = false;
       break;
+    case 37: //left
+      keyA = false;
+      break;
     case 87: //w
+      keyW = false;
+      break;
+    case 38: //up
       keyW = false;
       break;
     case 32:
