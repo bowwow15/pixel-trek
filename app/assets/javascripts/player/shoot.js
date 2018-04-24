@@ -25,7 +25,8 @@ var Bullet = {
 			expiration: expiration
 		});
 
-		Particle.blood(x, y);
+		Particle.muzzleFlash(0, 0, radian);
+		View.shake();
 	},
 
 	drawAll: function () {

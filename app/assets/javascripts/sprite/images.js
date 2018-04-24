@@ -10,6 +10,9 @@ bullet_image.src = "images/sprites/bullet.png";
 var blood_hit_sprite = new Image();
 blood_hit_sprite.src = "images/sprites/blood_hit.png";
 
+var muzzle_flash_sprite = new Image();
+muzzle_flash_sprite.src = "images/sprites/muzzle_flash.png";
+
 var player_run = new Image();
 player_run.src = "images/sprites/player_run.png";
 var player_run_reversed = new Image();

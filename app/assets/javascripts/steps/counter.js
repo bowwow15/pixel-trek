@@ -5,6 +5,8 @@ var Step = {
 
 	step: function () {
 		Movement.listen();
+
+		GameMath.queuedEvents();
 	},
 
 	smoothStep: function () {
