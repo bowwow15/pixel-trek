@@ -1,0 +1,5 @@
+var Weapon = {
+	drawAll: function () {
+
+	}
+};

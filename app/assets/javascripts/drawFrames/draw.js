@@ -8,6 +8,8 @@ var renderFrame = function () {
 
 	Bullet.drawAll();
 
+	Weapon.drawAll();
+
 	Particle.drawAll();
 
 	//draw cursor
