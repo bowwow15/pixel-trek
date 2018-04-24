@@ -14,7 +14,7 @@ var Sprite = {
 			if (element.frame < Particle.frames) {
 				Particle.array[index].frame += 1;
 			} else {
-				Particle.array[index].splice(index, 1); //delete animation
+				Particle.array.splice(index, 1); //delete animation
 			}
 		});
 	}
