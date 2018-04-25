@@ -17,6 +17,6 @@ var mousectx;
 mousectx = MouseContext.context; //important shorthand notice
 
 
-canvas.oncontextmenu = function (e) {
+document.getElementById('mouse').oncontextmenu = function (e) {
     e.preventDefault();
 }; //disable context menu

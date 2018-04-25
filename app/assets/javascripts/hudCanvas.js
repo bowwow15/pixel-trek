@@ -17,6 +17,6 @@ var ctx;
 hudctx = HudContext.context; //important shorthand notice
 
 
-canvas.oncontextmenu = function (e) {
+document.getElementById('hud').oncontextmenu = function (e) {
     e.preventDefault();
 }; //disable context menu
