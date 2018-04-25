@@ -8,7 +8,7 @@ var MouseCoordinates = {
 		let mouse_x_pixel_dens = this.x * Screen.pixelDensity;
 		let mouse_y_pixel_dens = this.y * Screen.pixelDensity;
 
-		this.radian = Math.atan2((Player.x) - (mouse_x_pixel_dens - View.x), - ((Player.y) - (mouse_y_pixel_dens - View.y)) )*(180/Math.PI);
+		this.radian = Math.atan2((Player.x + Bullet.spawnX) - (mouse_x_pixel_dens - View.x), - ((Player.y + Bullet.spawnY) - (mouse_y_pixel_dens - View.y)) )*(180/Math.PI);
 
 		Player.facing = this.radian;
 	},

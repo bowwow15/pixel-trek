@@ -15,6 +15,8 @@ var Player = {
 	facing: 1,
 	state: "idle",
 
+	weilding: false,
+
 	draw: function () {
 		this.x_center = this.x - 11;
 		this.y_center = this.y - 17;
@@ -29,9 +31,17 @@ var Player = {
 				this.frames = 0;
 
 				if (this.facing < 0) {
-					player_sprite = player_idle;
+					if (this.weilding) {
+						player_sprite = player_idle_weild;
+					} else {
+						player_sprite = player_idle;
+					}
 				} else {
-					player_sprite = player_idle_reversed;
+					if (this.weilding) {
+						player_sprite = player_idle_weild_reversed;
+					} else {
+						player_sprite = player_idle_reversed;
+					}
 				}
 
 				Sprite.draw(player_sprite, this.currentFrame, 21, 35, this.x_center + View.x, this.y_center + View.y, 21, 35, this.frames);

@@ -21,7 +21,7 @@ var Particle = {
 		this.array.push({
 			type: muzzle_flash_sprite,
 			x: x,
-			y: y,
+			y: y + 1,
 
 			rotation: rotation,
 

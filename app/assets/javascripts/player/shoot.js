@@ -1,6 +1,9 @@
 var Bullet = {
 	array: [],
 
+	spawnX: 0,
+	spawnY: 4,
+
 	new: function (type, x, y, radian) {
 		let speed = 20.0; // pixels per step
 
@@ -25,7 +28,7 @@ var Bullet = {
 			expiration: expiration
 		});
 
-		Particle.muzzleFlash(0, 0, radian);
+		Particle.muzzleFlash(0 + Bullet.spawnX, 0 + Bullet.spawnY, radian);
 		View.shake();
 	},
 

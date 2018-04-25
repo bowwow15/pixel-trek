@@ -8,9 +8,11 @@ var GameMath = {
 	queuedEvents: function () {
 		this.events.forEach(function (element, index) {
 			if (element.when <= Date.now()) {
-				element.event(element.params);
+				if (!element.deprecate) {
+					element.event(element.params);
+				}
 
-				GameMath.events.splice(index, 1); //delete
+				GameMath.events[index].deprecate = true; //deprecate
 			}
 		});
 	},
@@ -19,7 +21,9 @@ var GameMath = {
 		this.events.push({
 			event: event, //function stored in object
 			when: when,
-			params: params
+			params: params,
+
+			deprecate: false
 		});
 	}
 };

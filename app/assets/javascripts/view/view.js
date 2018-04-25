@@ -19,33 +19,25 @@ var View = {
 		this.y -= y;
 	},
 
+	shakeUp: function () {
+		this.shakeY = 2;
+		this.y -= this.shakeY;
+	},
+
+	shakeDown: function () {
+		this.shakeY = 4;
+		this.y += this.shakeY;
+
+		GameMath.queueEvent(View.reset, Date.now() + 30, null);
+	},
+
 	shake: function () {
-		this.shakeCounter += 1;
-
-		this.shakeX = 0;
-
-		var randomShake = 2;
-
-		if (this.shakeCounter <= 1) {
-			this.shakeY = randomShake;  
-		} else {
-			this.shakeY = -randomShake;
-		}
-
-		this.x += this.shakeX;
-		this.y += this.shakeY; // -5 to 5...
-
-		if (this.shakeCounter <= 1) {
-			GameMath.queueEvent(View.shake, Date.now() + 25);
-			this.shakeCounter = 0;
-		} else {
-			GameMath.queueEvent(View.reset, Date.now() + 50);
-			this.shakeCounter = 0;
-		}
+		View.shakeUp();
+		GameMath.queueEvent(View.shakeDown, Date.now() + 30, null);
 	},
 
 	reset: function () {
-		View.x -= View.shakeX;
-		View.y -= View.shakeY;
+		View.x += View.shakeX;
+		View.y += View.shakeY;
 	}
 };

@@ -7,6 +7,13 @@ click_image.src = "images/click.png";
 var bullet_image = new Image();
 bullet_image.src = "images/sprites/bullet.png";
 
+//GUNS
+
+var ak_47_sprite = new Image();
+ak_47_sprite.src = "images/sprites/weapons/ak_47.png";
+
+//END GUNS
+
 var blood_hit_sprite = new Image();
 blood_hit_sprite.src = "images/sprites/blood_hit.png";
 
@@ -22,6 +29,11 @@ var player_idle = new Image();
 player_idle.src = "images/sprites/player_idle.png";
 var player_idle_reversed = new Image();
 player_idle_reversed.src = "images/sprites/player_idle_reversed.png";
+
+var player_idle_weild = new Image();
+player_idle_weild.src = "images/sprites/player_idle_weild.png";
+var player_idle_weild_reversed = new Image();
+player_idle_weild_reversed.src = "images/sprites/player_idle_weild_reversed.png";
 
 var player_mid_air = new Image();
 player_mid_air.src = "images/sprites/player_mid_air.png";
