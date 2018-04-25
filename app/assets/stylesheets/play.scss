@@ -6,7 +6,7 @@ body {
 	background: black;
 }
 
-#canvas {
+#canvas, #hud, #mouse {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -25,6 +25,9 @@ body {
 
 	cursor: none !important;
 }
+
+#canvas { z-index: 0; }
+#hud { z-index: 1; } /* HUD ON TOP! */
 
 #loadingScreen {
 	position: fixed;

@@ -51,9 +51,17 @@ var Player = {
 				this.frames = 8;
 
 				if (this.facing < 0) {
-					player_sprite = player_run;
+					if (this.weilding) {
+						player_sprite = player_run_weild;
+					} else {
+						player_sprite = player_run;
+					}
 				} else {
-					player_sprite = player_run_reversed;
+					if (this.weilding) {
+						player_sprite = player_run_weild_reversed;
+					} else {
+						player_sprite = player_run_reversed;
+					}
 				}
 
 				Sprite.draw(player_sprite, this.currentFrame, 23, 35, this.x_center + View.x, this.y_center + View.y, 23, 35, this.frames);

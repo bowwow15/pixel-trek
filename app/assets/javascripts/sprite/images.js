@@ -25,6 +25,11 @@ player_run.src = "images/sprites/player_run.png";
 var player_run_reversed = new Image();
 player_run_reversed.src = "images/sprites/player_run_reversed.png";
 
+var player_run_weild = new Image();
+player_run_weild.src = "images/sprites/player_run_weild.png";
+var player_run_weild_reversed = new Image();
+player_run_weild_reversed.src = "images/sprites/player_run_weild_reversed.png";
+
 var player_idle = new Image();
 player_idle.src = "images/sprites/player_idle.png";
 var player_idle_reversed = new Image();

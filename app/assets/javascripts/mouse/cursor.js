@@ -13,7 +13,9 @@ var Cursor = {
 			cursor_image_rendered = click_image;
 		}
 
-		ctx.beginPath();
-		ctx.drawImage(cursor_image_rendered, x - 8, y - 8); // - 7 centers cursor
+		mousectx.clearRect(0, 0, mouseCanvas.width, mouseCanvas.height);
+
+		mousectx.beginPath();
+		mousectx.drawImage(cursor_image_rendered, x - 8, y - 8); // - 7 centers cursor
 	}
 };

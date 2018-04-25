@@ -12,6 +12,8 @@ var renderFrame = function () {
 
 	Particle.drawAll();
 
+	Hud.draw();
+
 	//draw cursor
 	Cursor.draw(MouseCoordinates.coordsTimesPixelDensity().x, MouseCoordinates.coordsTimesPixelDensity().y);
 } 

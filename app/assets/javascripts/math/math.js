@@ -25,5 +25,9 @@ var GameMath = {
 
 			deprecate: false
 		});
+	},
+
+	element: function (tag_id) {
+		return document.getElementById(tag_id)
 	}
 };

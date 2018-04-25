@@ -14,3 +14,7 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 
 Rails.application.config.assets.precompile += %w( canvas.js )
+
+Rails.application.config.assets.precompile += %w( mouseCanvas.js )
+
+Rails.application.config.assets.precompile += %w( hudCanvas.js )
