@@ -7,6 +7,8 @@ var View = {
 	shakeY: 0,
 	shakeCounter: 0,
 
+	hud: false,
+
 	calculate: function () {
 		return {
 			x: Player.x - this.x,
