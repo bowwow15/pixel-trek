@@ -27,7 +27,8 @@ body {
 }
 
 #canvas { z-index: 0; }
-#hud { z-index: 1; } /* HUD ON TOP! */
+#hud { z-index: 1; }
+#mouse { z-index: 2; } /* MOUSE ON TOP! */
 
 #loadingScreen {
 	position: fixed;

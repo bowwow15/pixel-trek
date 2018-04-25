@@ -8,6 +8,7 @@ var Hud = {
 		hudctx.clearRect(0, 0, canvas.width, canvas.height);
 
 		hudctx.fillStyle = '#000000';
+		hudctx.lineWidth = 2;
 
 		hudctx.beginPath();
 		hudctx.rect((canvas.width / 2) - (Hud.width / 2), canvas.height - Hud.height, Hud.width, Hud.height); // container for bottom inventory hudslots
