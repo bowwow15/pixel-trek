@@ -22,8 +22,14 @@ body {
 	image-rendering: crisp-edges;
 
 	z-index: 0;
+}
 
-	cursor: url(/images/cursor.png) 32 32, auto !important;
+#body {
+	cursor: url(/images/cursor.png) 32 32, auto;
+}
+
+#body:active {
+	cursor: url(/images/click.png) 32 32, auto !important;
 }
 
 #canvas { z-index: 0; }
