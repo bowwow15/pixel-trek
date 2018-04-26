@@ -7,6 +7,15 @@ click_image.src = "images/click.png";
 var bullet_image = new Image();
 bullet_image.src = "images/sprites/bullet.png";
 
+// HANDS
+
+var hand_1_image = new Image();
+hand_1_image.src = "images/sprites/hand_1.png";
+var hand_2_image = new Image();
+hand_2_image.src = "images/sprites/hand_2.png";
+
+// END HANDS
+
 //GUNS
 
 var ak_47_sprite = new Image();
