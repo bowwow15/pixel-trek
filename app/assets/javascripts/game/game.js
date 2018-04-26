@@ -19,6 +19,10 @@ var Game = {
 		document.getElementById("loadingScreen").style.display = "none"; //hides loading screen
 
 		renderFrame();
+
+		//default functions for testing...
+		Weapon.holding = "ak_47";
+		Player.weilding = true;
 	},
 
 	mouseMove: function (e) {
