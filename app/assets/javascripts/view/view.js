@@ -21,9 +21,11 @@ var View = {
 		this.y -= y;
 	},
 
-	shakeUp: function () {
-		this.shakeY = 2;
+	shakeUp: function (radian) {
+		this.shakeX = 2 * Math.cos((radian) * Math.PI / 180);
+		this.shakeY = 2 * Math.sin((radian) * Math.PI / 180);
 		this.y -= this.shakeY;
+		this.x -= this.shakeX;
 	},
 
 	shakeDown: function () {
@@ -33,8 +35,8 @@ var View = {
 		GameMath.queueEvent(View.reset, Date.now() + 30, null);
 	},
 
-	shake: function () {
-		View.shakeUp();
+	shake: function (radian) {
+		View.shakeUp(radian);
 		GameMath.queueEvent(View.shakeDown, Date.now() + 30, null);
 	},
 

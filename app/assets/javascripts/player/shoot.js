@@ -29,7 +29,7 @@ var Bullet = {
 		});
 
 		Particle.muzzleFlash(0 + Bullet.spawnX, 0 + Bullet.spawnY, radian);
-		View.shake();
+		View.shake(radian);
 	},
 
 	drawAll: function () {
