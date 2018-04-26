@@ -28,9 +28,9 @@ body {
 	cursor: url(/images/cursor.png) 32 32, auto;
 }
 
-#body:active {
+/*#body:active {
 	cursor: url(/images/click.png) 32 32, auto !important;
-}
+}*/
 
 #canvas { z-index: 0; }
 #hud { z-index: 1; }
