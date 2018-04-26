@@ -24,6 +24,10 @@ resizeCanvas = function () { //resizes canvas to browser window
 
     document.getElementById('mouse').width = window.innerWidth * pixelDensity;
     document.getElementById('mouse').height = window.innerHeight * pixelDensity;
+
+	Movement.reset();
+
+    View.center();
 }
 
-resizeCanvas();
+window.onload = resizeCanvas();

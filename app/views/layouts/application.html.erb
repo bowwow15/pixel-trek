@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
 
-  <body onresize="resizeCanvas()">
+  <body onresize="resizeCanvas()" id="body">
     <!-- COPYRIGHT 2018 BROOKS JEREMIAH WIBBERDING, ALL RIGHTS RESERVED -->
 
     <%= yield %>
@@ -19,7 +19,7 @@
     <%= javascript_include_tag 'canvas', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'mouseCanvas', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'hudCanvas', 'data-turbolinks-track': 'reload' %>
-    
+
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>
 </html>

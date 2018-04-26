@@ -1,7 +1,7 @@
-var keyW = false;
-var keyA = false;
-var keyS = false;
-var keyD = false;
+var keyW;
+var keyA;
+var keyS;
+var keyD;
 
 var jumpKey = false; //spacebar
 
@@ -34,8 +34,17 @@ var Movement = {
 		//reset coordinate properties
 		if (this.x != 0) this.x = 0;
 		if (this.y != 0) this.y = 0;
-	}
+	},
+
+  reset: function () {
+    keyW = false;
+    keyA = false;
+    keyS = false;
+    keyD = false;
+  }
 }
+
+Movement.reset(); //set's initial values
 
 function onKeyDown(event) {
   var keyCode = event.keyCode;

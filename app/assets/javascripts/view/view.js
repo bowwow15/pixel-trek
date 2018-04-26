@@ -21,9 +21,14 @@ var View = {
 		this.y -= y;
 	},
 
+	center: function () {
+		View.x = Math.round(canvas.width / 2) - Player.x;
+		View.y = Math.round(canvas.height / 2) - Player.y;
+	},
+
 	shakeUp: function (radian) {
-		this.shakeX = 2 * Math.cos((radian) * Math.PI / 180);
-		this.shakeY = 2 * Math.sin((radian) * Math.PI / 180);
+		this.shakeX = 2 * Math.round(Math.cos((radian) * Math.PI / 180));
+		this.shakeY = 2 * Math.round(Math.sin((radian) * Math.PI / 180));
 		this.y -= this.shakeY;
 		this.x -= this.shakeX;
 	},

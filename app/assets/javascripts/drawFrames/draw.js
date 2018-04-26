@@ -8,7 +8,7 @@ var renderFrame = function () {
 
 	Bullet.drawAll();
 
-	Weapon.drawAll();
+	Weapon.draw();
 
 	Particle.drawAll();
 
