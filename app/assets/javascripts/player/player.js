@@ -159,6 +159,19 @@ var Player = {
 		}
 	},
 
+	punch: function () {
+
+	},
+
+	shoot: function () {
+		if (Weapon.holding == "hand" || Weapon.holding == null) {
+			Player.punch();
+		} else {
+			Player.weilding = true;
+			Bullet.new("white", Player.x + Bullet.spawnX, Player.y + Bullet.spawnY, Player.facing);
+		}
+	},
+
 	drawJumpAnimations: function () {
 		let velocity = this.jumpVelocity;
 

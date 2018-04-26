@@ -2,7 +2,7 @@ var Weapon = {
 	spawnX: 0,
 	spawnY: 1,
 
-	holding: null,
+	holding: "hand",
 
 	draw: function () {
 		ctx.beginPath();
