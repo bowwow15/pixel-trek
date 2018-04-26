@@ -23,7 +23,7 @@ var Weapon = {
 				posY = -3;
 
 				rotationCenterX = 10;
-				rotationCenterY = 7;
+				rotationCenterY = 5;
 
 				Bullet.spawnX = 30 * Math.cos(radian * Math.PI / 180);
 				Bullet.spawnY = 30 * Math.sin(radian * Math.PI / 180);
@@ -33,15 +33,13 @@ var Weapon = {
 				} else {
 					gun_sprite = ak_47_sprite_reversed;
 
-					rotationCenterX = 20;
-					rotationCenterY = 7;
-
-					Bullet.spawnX = 30 * Math.cos(radian * Math.PI / 180);
-					Bullet.spawnY = 30 * Math.sin(radian * Math.PI / 180);
+					rotationCenterX = 26;
+					rotationCenterY = 5;
 
 					radian += 180;
 
-					posX = -25;
+					posX = -26;
+					posY = -4;
 				}
 				break;
 		}
