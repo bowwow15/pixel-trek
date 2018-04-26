@@ -42,7 +42,10 @@ var Weapon = {
 		let rotationCenterX;
 		let rotationCenterY;
 
-		let image;
+		let image = {
+			width: 0,
+			height: 0
+		};
 
 		switch (this.holding) {
 			case "ak_47": //gun sprite 35 x 15

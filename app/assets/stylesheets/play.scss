@@ -23,7 +23,7 @@ body {
 
 	z-index: 0;
 
-	cursor: none !important;
+	cursor: url(/images/cursor.png) 32 32, auto !important;
 }
 
 #canvas { z-index: 0; }
