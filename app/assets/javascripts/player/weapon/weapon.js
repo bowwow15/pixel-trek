@@ -1,31 +1,58 @@
 var Weapon = {
-	spawnPointx: 0,
-	spawnPointy: 1,
+	spawnX: 0,
+	spawnY: 1,
 
 	holding: null,
 
 	draw: function () {
 		ctx.beginPath();
 
+		let radian = Player.facing + 89.67;
+
+		let gun_sprite = ak_47_sprite;
+
+		let posX;
+		let posY;
+
+		let rotationCenterX;
+		let rotationCenterY;
+
 		switch (this.holding) {
 			case "ak_47":
-				let posX = -5;
-				let posY = -3;
+				posX = -10;
+				posY = -3;
 
-				ctx.translate((Player.x + View.x + posX), (Player.y + View.y + posY));
+				rotationCenterX = 10;
+				rotationCenterY = 7;
 
-				let radian = Player.facing + 89.67;
+				Bullet.spawnX = 30 * Math.cos(radian * Math.PI / 180);
+				Bullet.spawnY = 30 * Math.sin(radian * Math.PI / 180);
 
-				Bullet.spawnX = 35 * Math.cos(radian * Math.PI / 180);
-				Bullet.spawnY = 35 * Math.sin(radian * Math.PI / 180);
+				if (Player.facing < 0) {
+					gun_sprite = ak_47_sprite;
+				} else {
+					gun_sprite = ak_47_sprite_reversed;
 
-				ctx.rotate(radian * Math.PI / 180);
-				ctx.translate(-(Player.x + View.x + posX), -(Player.y + View.y + posY));
+					rotationCenterX = 20;
+					rotationCenterY = 7;
 
-				ctx.drawImage(ak_47_sprite, Player.x + View.x + posX, Player.y + View.y + posY);
+					Bullet.spawnX = 30 * Math.cos(radian * Math.PI / 180);
+					Bullet.spawnY = 30 * Math.sin(radian * Math.PI / 180);
 
-				ctx.resetTransform();
+					radian += 180;
+
+					posX = -25;
+				}
 				break;
 		}
+
+		ctx.translate((Player.x + View.x + posX + rotationCenterX), (Player.y + View.y + posY + rotationCenterY));
+
+		ctx.rotate(radian * Math.PI / 180);
+		ctx.translate(-(Player.x + View.x + posX + rotationCenterX), -(Player.y + View.y + posY + rotationCenterY));
+
+		ctx.drawImage(gun_sprite, Player.x + View.x + posX, Player.y + View.y + posY);
+
+		ctx.resetTransform();
 	}
 };

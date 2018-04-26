@@ -4,6 +4,9 @@ var Bullet = {
 	spawnX: 0,
 	spawnY: 4,
 
+	spawnXwithoutPI: 0,
+	spawnYwithoutPI: 4,
+
 	new: function (type, x, y, radian) {
 		let speed = 20.0; // pixels per step
 
