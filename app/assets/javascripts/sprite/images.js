@@ -11,6 +11,8 @@ bullet_image.src = "images/sprites/bullet.png";
 
 var ak_47_sprite = new Image();
 ak_47_sprite.src = "images/sprites/weapons/ak_47.png";
+var ak_47_reversed_sprite = new Image();
+ak_47_reversed_sprite.src = "images/sprites/weapons/ak_47_reversed.png";
 
 //END GUNS
 

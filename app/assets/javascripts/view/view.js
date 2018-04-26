@@ -50,3 +50,5 @@ var View = {
 		View.y += View.shakeY;
 	}
 };
+
+window.onload = resizeCanvas();
