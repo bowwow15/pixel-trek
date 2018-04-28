@@ -56,8 +56,8 @@ var Weapon = {
 				rotationCenterX = 10;
 				rotationCenterY = 5;
 
-				Bullet.spawnX = 30 * Math.cos(radian * Math.PI / 180);
-				Bullet.spawnY = 30 * Math.sin(radian * Math.PI / 180);
+				Bullet.spawnX = 35 * Math.cos(radian * Math.PI / 180);
+				Bullet.spawnY = 35 * Math.sin(radian * Math.PI / 180);
 
 				if (Player.facing < 0) {
 					gun_sprite = ak_47_sprite;
