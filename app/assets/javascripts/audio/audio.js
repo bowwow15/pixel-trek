@@ -1,0 +1,1 @@
+var airsoft_audio = new Audio('/audio/airsoft.mp3');
