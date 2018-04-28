@@ -9,7 +9,7 @@ var GameMath = {
 		this.events.forEach(function (element, index) {
 			if (element.when <= Date.now()) {
 				if (!element.deprecate) {
-					element.event(element.params);
+					element.event(eval(element.params));
 				}
 
 				GameMath.events[index].deprecate = true; //deprecate
