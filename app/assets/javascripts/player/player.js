@@ -161,7 +161,7 @@ var Player = {
 
 	punch: function () {
 		// loads punch animation...
-		
+
 
 	},
 

@@ -10,6 +10,11 @@ var Bullet = {
 	checkMouseDown: function () {
 		if (Cursor.clicking) {
 			Player.shoot();
+
+			Audio.startAudio(airsoft_audio);
+		} else {
+			Audio.stopAudio(airsoft_audio);
+			Audio.startAudio(reload_audio);
 		}
 	},
 
