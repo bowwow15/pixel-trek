@@ -150,18 +150,24 @@ var Player = {
 
 	reloading: false,
 	addBullets: function (amount) {
-		Player.gun.clip += amount;
-		Player.gun.bullets -= amount;
+		if (amount < Player.gun.bullets) {
+			Player.gun.clip += amount;
+			Player.gun.bullets -= amount;
+		} else {
+			Player.gun.clip += Player.gun.bullets;
+		}
 
 		Player.reloading = false;
 	},
 
 	reload: function () {
-		Text.add(window.innerWidth / 2, window.innerHeight / 3, "Reloading...", "black", 15, Date.now() + 1400);
+		if (Player.gun.clip <= 0) {
+			Text.add(window.innerWidth / 2, window.innerHeight / 3, "Reloading...", "black", 15, Date.now() + 1400);
 
-		Audio.startAudio(reload_audio);
-		Player.reloading = true;
-		GameMath.queueEvent(Player.addBullets, Date.now() + 1400, 20); //20 bullets reload, 2 seconds from now.
+			Audio.startAudio(reload_audio);
+			Player.reloading = true;
+			GameMath.queueEvent(Player.addBullets, Date.now() + 1400, 20); //20 bullets reload, 2 seconds from now.
+		}
 	},
 
 	jump: function (velocity) {
