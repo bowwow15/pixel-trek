@@ -16,8 +16,8 @@ resizeCanvas = function () { //resizes canvas to browser window
     canvas.width = window.innerWidth * pixelDensity;
     canvas.height = window.innerHeight * pixelDensity;
 
-    document.getElementById('hud').width = window.innerWidth * pixelDensity;
-    document.getElementById('hud').height = window.innerHeight * pixelDensity;
+    document.getElementById('hud').width = window.innerWidth;
+    document.getElementById('hud').height = window.innerHeight;
 
     hudCanvas = document.getElementById('hud');
     mouseCanvas = document.getElementById('mouse');

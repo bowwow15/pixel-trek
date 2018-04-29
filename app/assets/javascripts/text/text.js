@@ -19,16 +19,18 @@ var Text = {
 	},
 
 	drawAll: function () {
+		hudctx.clearRect(0, 0, hudCanvas.width, hudCanvas.height);
+
 		this.array.forEach(function (element, index) {
 			if (Date.now() < element.timeout) { // if text has not timed out, draw.
-				ctx.font = element.size + "px Courier";
+				hudctx.font = element.size + "px Courier";
 
-				ctx.beginPath();
+				hudctx.beginPath();
 
-				ctx.fillStyle = element.color;
-	    		ctx.textAlign = 'center';
+				hudctx.fillStyle = element.color;
+	    		hudctx.textAlign = 'center';
 
-				ctx.fillText(element.text, element.x, element.y);
+				hudctx.fillText(element.text, element.x, element.y);
 			}
 		});
 	}	

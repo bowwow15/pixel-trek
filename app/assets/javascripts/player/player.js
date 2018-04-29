@@ -157,6 +157,8 @@ var Player = {
 	},
 
 	reload: function () {
+		Text.add(window.innerWidth / 2, window.innerHeight / 3, "Reloading...", "black", 15, Date.now() + 1400);
+
 		Audio.startAudio(reload_audio);
 		Player.reloading = true;
 		GameMath.queueEvent(Player.addBullets, Date.now() + 1400, 20); //20 bullets reload, 2 seconds from now.
@@ -201,7 +203,7 @@ var Player = {
 
 				if (!Player.reloading) {
 					//press r to reload
-					Text.add(canvas.width / 2, canvas.height / 4, "Out of ammo. Press R to reload.", "red", 7, Date.now() + 1500);
+					Text.add(window.innerWidth / 2, window.innerHeight / 4, "Out of ammo. Press R to reload.", "red", 15, Date.now() + 1500);
 				}
 			} else {
 				Audio.startAudio(airsoft_audio);
