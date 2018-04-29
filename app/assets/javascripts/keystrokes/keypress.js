@@ -84,8 +84,12 @@ function onKeyDown(event) {
 
       break;
 
-    case 82: //R key (RELOAD)
+    case 82: // R key (RELOAD)
       Player.reload();
+      break;
+
+    case 77: // M key (MUSIC)
+      Audio.startAudio(music_audio);
       break;
   }
 }
