@@ -12,6 +12,8 @@ var renderFrame = function () {
 
 	Particle.drawAll();
 
+	Text.drawAll();
+
 	if (Hud.visible) Hud.draw();
 
 	//draw cursor

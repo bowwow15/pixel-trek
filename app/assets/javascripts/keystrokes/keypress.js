@@ -83,6 +83,10 @@ function onKeyDown(event) {
       Hud.toggle(); //hides or shows heads up display
 
       break;
+
+    case 82: //R key (RELOAD)
+      Player.reload();
+      break;
   }
 }
 

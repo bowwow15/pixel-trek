@@ -148,11 +148,18 @@ var Player = {
 		bullets: 100
 	},
 
-	reload: function (amount) {
-		Audio.startAudio(reload_audio);
-
+	reloading: false,
+	addBullets: function (amount) {
 		Player.gun.clip += amount;
 		Player.gun.bullets -= amount;
+
+		Player.reloading = false;
+	},
+
+	reload: function () {
+		Audio.startAudio(reload_audio);
+		Player.reloading = true;
+		GameMath.queueEvent(Player.addBullets, Date.now() + 1400, 20); //20 bullets reload, 2 seconds from now.
 	},
 
 	jump: function (velocity) {
@@ -192,10 +199,13 @@ var Player = {
 			if (Player.gun.clip <= 0) {
 				Audio.stopAudio(airsoft_audio);
 
-				Player.reload(20);
+				if (!Player.reloading) {
+					//press r to reload
+					Text.add(canvas.width / 2, canvas.height / 4, "Out of ammo. Press R to reload.", "red", 7, Date.now() + 1500);
+				}
 			} else {
 				Audio.startAudio(airsoft_audio);
-				
+
 				Player.weilding = true;
 				Bullet.new("white", Player.x + Bullet.spawnX, Player.y + Bullet.spawnY, Player.facing);
 
