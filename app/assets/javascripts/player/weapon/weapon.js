@@ -17,7 +17,7 @@ var Weapon = {
 		let hand2X = playerX + hand2.x;
 		let hand2Y = playerY + hand2.y;
 
-		if (Player.facing > 0) {
+		if (Player.facing >= 0) {
 			hand1X = playerX - hand1.x - 5;
 			hand2X = playerX - hand2.x - 5;
 		}
@@ -59,9 +59,9 @@ var Weapon = {
 				Bullet.spawnX = 35 * Math.cos(radian * Math.PI / 180);
 				Bullet.spawnY = 35 * Math.sin(radian * Math.PI / 180);
 
-				if (Player.facing < 0) {
-					gun_sprite = ak_47_sprite;
-				} else {
+				gun_sprite = ak_47_sprite;
+
+				if (Player.facing >= 0) {
 					gun_sprite = ak_47_sprite_reversed;
 
 					rotationCenterX = 35 - 10;
