@@ -143,6 +143,18 @@ var Player = {
 
 	jumpDirection: 1, //up
 
+	gun: {
+		clip: 20,
+		bullets: 100
+	},
+
+	reload: function (amount) {
+		Audio.startAudio(reload_audio);
+
+		Player.gun.clip += amount;
+		Player.gun.bullets -= amount;
+	},
+
 	jump: function (velocity) {
 		this.state = "jump";
 
@@ -165,12 +177,32 @@ var Player = {
 
 	},
 
+	checkMouseDown: function () {
+		if (Cursor.clicking) {
+			Player.shoot();
+		} else {
+			Audio.stopAudio(airsoft_audio);
+		}
+	},
+
 	shoot: function () {
 		if (Weapon.holding == "hand" || Weapon.holding == null) {
 			Player.punch();
 		} else {
-			Player.weilding = true;
-			Bullet.new("white", Player.x + Bullet.spawnX, Player.y + Bullet.spawnY, Player.facing);
+			if (Player.gun.clip <= 0) {
+				Audio.stopAudio(airsoft_audio);
+
+				Player.reload(20);
+			} else {
+				Audio.startAudio(airsoft_audio);
+				
+				Player.weilding = true;
+				Bullet.new("white", Player.x + Bullet.spawnX, Player.y + Bullet.spawnY, Player.facing);
+
+				Player.gun.clip -= 1;
+
+				GameMath.queueEvent(Player.checkMouseDown, Date.now() + 100, null);
+			}
 		}
 	},
 

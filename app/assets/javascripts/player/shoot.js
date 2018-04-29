@@ -7,17 +7,6 @@ var Bullet = {
 	spawnXwithoutPI: 0,
 	spawnYwithoutPI: 4,
 
-	checkMouseDown: function () {
-		if (Cursor.clicking) {
-			Player.shoot();
-
-			Audio.startAudio(airsoft_audio);
-		} else {
-			Audio.stopAudio(airsoft_audio);
-			Audio.startAudio(reload_audio);
-		}
-	},
-
 	new: function (type, x, y, radian) {
 		let speed = 20.0; // pixels per step
 
@@ -44,8 +33,6 @@ var Bullet = {
 
 		Particle.muzzleFlash(0 + Bullet.spawnX, 0 + Bullet.spawnY, radian);
 		View.shake(radian);
-
-		GameMath.queueEvent(Bullet.checkMouseDown, Date.now() + 100, null);
 	},
 
 	drawAll: function () {
