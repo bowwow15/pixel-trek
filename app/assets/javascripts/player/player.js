@@ -156,8 +156,6 @@ var Player = {
 		} else {
 			Player.gun.clip += Player.gun.bullets;
 		}
-
-		Player.reloading = false;
 	},
 
 	reload: function () {
@@ -168,6 +166,8 @@ var Player = {
 			Player.reloading = true;
 			GameMath.queueEvent(Player.addBullets, Date.now() + 1400, 20); //20 bullets reload, 2 seconds from now.
 		}
+
+		Player.reloading = false;
 	},
 
 	jump: function (velocity) {
