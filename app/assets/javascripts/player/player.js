@@ -1,4 +1,6 @@
 var Player = {
+	uuid: null,
+
 	x: 0,
 	y: Ground.base,
 
