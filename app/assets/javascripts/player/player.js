@@ -19,7 +19,7 @@ var Player = {
 
 	weilding: false,
 
-	draw: function () {
+	draw: function (x = 0, y = 0, server = false) {
 		this.x_center = this.x - 11;
 		this.y_center = this.y - 17;
 

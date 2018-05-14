@@ -4,6 +4,7 @@ var renderFrame = function () {
 	//draw stuff
 	Terrain.draw();
 
+	Server.drawPlayers();
 	Player.draw();
 
 	Bullet.drawAll();
