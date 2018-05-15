@@ -19,16 +19,26 @@ var Player = {
 
 	weilding: false,
 
-	draw: function (x = 0, y = 0, server = false) {
+	draw: function (x = 0, y = 0, state = "idle", facing = 1, server = false) {
 		this.x_center = this.x - 11;
 		this.y_center = this.y - 17;
 
+		if (server) {
+			x = x;
+			y = y;
+		} else {
+			x = this.x_center;
+			y = this.y_center;
+
+			state = this.state;
+		}
+ 
 		ctx.fillStyle = 'red';
 		ctx.beginPath();
 
 		let player_sprite;
 
-		switch (this.state) {
+		switch (state) {
 			case "idle":
 				this.frames = 0;
 
@@ -46,7 +56,7 @@ var Player = {
 					}
 				}
 
-				Sprite.draw(player_sprite, this.currentFrame, 21, 35, this.x_center + View.x, this.y_center + View.y, 21, 35, this.frames);
+				Sprite.draw(player_sprite, this.currentFrame, 21, 35, x + View.x, y + View.y, 21, 35, this.frames);
 				break;
 
 			case "running":
@@ -66,7 +76,7 @@ var Player = {
 					}
 				}
 
-				Sprite.draw(player_sprite, this.currentFrame, 23, 35, this.x_center + View.x, this.y_center + View.y, 23, 35, this.frames);
+				Sprite.draw(player_sprite, this.currentFrame, 23, 35, x + View.x, y + View.y, 23, 35, this.frames);
 				break;
 
 			case "jump":
@@ -78,7 +88,7 @@ var Player = {
 					player_sprite = player_jump_reversed;
 				}
 
-				Sprite.draw(player_sprite, this.currentFrame, 17, 34, this.x_center + View.x, this.y_center + View.y, 17, 34, this.frames);
+				Sprite.draw(player_sprite, this.currentFrame, 17, 34, x + View.x, y + View.y, 17, 34, this.frames);
 				break;
 
 			case "mid_air":
@@ -90,7 +100,7 @@ var Player = {
 					player_sprite = player_mid_air_reversed;
 				}
 
-				Sprite.draw(player_sprite, this.currentFrame, 20, 35, this.x_center + View.x, this.y_center + View.y, 20, 35, this.frames);
+				Sprite.draw(player_sprite, this.currentFrame, 20, 35, x + View.x, y + View.y, 20, 35, this.frames);
 				break;
 
 			case "landing":
@@ -102,7 +112,7 @@ var Player = {
 					player_sprite = player_landing_reversed;
 				}
 
-				Sprite.draw(player_sprite, this.currentFrame, 20, 35, this.x_center + View.x, this.y_center + View.y, 20, 35, this.frames);
+				Sprite.draw(player_sprite, this.currentFrame, 20, 35, x + View.x, y + View.y, 20, 35, this.frames);
 				break;
 		}
 	},

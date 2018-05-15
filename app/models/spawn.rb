@@ -6,6 +6,7 @@ class Spawn < ApplicationController
 		return {
 			x: x,
 			y: y,
+			state: "idle",
 			uuid: uuid
 		}
 	end
