@@ -1,1 +1,1 @@
-REDIS = Redis.new(url: ENV["redis-12642.c11.us-east-1-2.ec2.butt.redislabs.com:12642"])
+REDIS = Redis.new(url: ENV["REDIS_URL"])
