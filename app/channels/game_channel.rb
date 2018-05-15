@@ -1,6 +1,8 @@
 class GameChannel < ApplicationCable::Channel
   def subscribed
     stream_from "player_#{uuid}"
+
+    Game.addPlayer(uuid)
   end
 
   def unsubscribed
@@ -8,8 +10,12 @@ class GameChannel < ApplicationCable::Channel
   end
 
   def movePlayer (data)
-  	Game.movePlayer(uuid, data)
+  	Game.movePlayer(uuid, data['player'])
   end	
+
+  def newBullet (data)
+  	Game.newBullet(uuid, data['bullet'])
+  end
 
   def getPlayerUuid
   	Game.getPlayerUuid(uuid)

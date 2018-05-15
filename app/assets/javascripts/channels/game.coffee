@@ -12,8 +12,10 @@ App.game = App.cable.subscriptions.create "GameChannel",
     		Player.uuid = data.uuid;
     	when "send_player_coordinates"
     		Server.movePlayer(eval(data.uuid), eval(data.coordinates));
-
-
-movePlayer: (object) ->
-	@perform 'movePlayer', object: object
-
+  
+  
+  movePlayer: (player) ->
+    @perform 'movePlayer', player: player
+  
+  newBullet: (bullet) ->
+    @perform 'newBullet', bullet: bullet

@@ -1,0 +1,14 @@
+App.global = App.cable.subscriptions.create "GlobalChannel",
+  connected: ->
+    # Called when the subscription is ready for use on the server
+
+  disconnected: ->
+    # Called when the subscription has been terminated by the server
+
+  received: (data) ->
+  	switch data.action
+	  	when "spawn_player"
+	    	Server.addPlayer(data.spawn.x, data.spawn.y, data.spawn.uuid);
+
+	    when "new_bullet"
+	    	Bullet.new(data.bullet.type, data.bullet.x, data.bullet.y, data.bullet.radian);	
