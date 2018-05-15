@@ -11,6 +11,10 @@ class Game < ApplicationController
 		ActionCable.server.broadcast "global", {action: "new_bullet", bullet: bullet}
 	end
 
+	def self.muzzleFlash (uuid, bullet)
+		ActionCable.server.broadcast "global", {action: "muzzle_flash", bullet: bullet, uuid: uuid}
+	end
+
 	def self.getPlayerUuid (uuid)
 		ActionCable.server.broadcast "player_#{uuid}", {action: "player_uuid", uuid: uuid}
 	end

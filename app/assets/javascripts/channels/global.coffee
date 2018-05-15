@@ -12,3 +12,6 @@ App.global = App.cable.subscriptions.create "GlobalChannel",
 
 	    when "new_bullet"
 	    	Bullet.new(data.bullet.type, data.bullet.x, data.bullet.y, data.bullet.radian);	
+
+	    when "muzzle_flash"
+	    	ServerWeapons.drawMuzzleFlash(0 + data.bullet.spawnX, 0 + data.bullet.spawnY, data.bullet.radian, data.uuid);

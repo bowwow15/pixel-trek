@@ -19,3 +19,6 @@ App.game = App.cable.subscriptions.create "GameChannel",
   
   newBullet: (bullet) ->
     @perform 'newBullet', bullet: bullet
+
+  muzzleFlash: (bullet) ->
+  	@perform 'muzzleFlash', bullet: bullet

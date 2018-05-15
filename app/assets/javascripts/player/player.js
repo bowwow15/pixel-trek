@@ -217,6 +217,8 @@ var Player = {
 				Audio.startAudio(airsoft_audio);
 
 				Player.weilding = true;
+
+				ServerWeapons.muzzleFlash(Player.x + Bullet.spawnX, Player.y + Bullet.spawnY, Player.facing);
 				ServerWeapons.newBullet("white", Player.x + Bullet.spawnX, Player.y + Bullet.spawnY, Player.facing);
 
 				Player.gun.clip -= 1;

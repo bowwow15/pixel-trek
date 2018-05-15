@@ -31,7 +31,6 @@ var Bullet = {
 			expiration: expiration
 		});
 
-		Particle.muzzleFlash(0 + Bullet.spawnX, 0 + Bullet.spawnY, radian);
 		View.shake(radian);
 	},
 

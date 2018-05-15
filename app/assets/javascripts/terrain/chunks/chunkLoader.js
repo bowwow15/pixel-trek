@@ -31,7 +31,7 @@ var Chunk = {
 					tile: grass_tile,
 					rotation: rotation
 				});
-			} 
+			}
 
 			this.load(terrainArray, row);
 		}

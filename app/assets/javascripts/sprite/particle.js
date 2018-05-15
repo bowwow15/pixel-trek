@@ -17,7 +17,9 @@ var Particle = {
 		});
 	},
 
-	muzzleFlash: function (x, y, rotation) { //x and y are just to change already set value. sprite is fixed to player.
+	muzzleFlash: function (x, y, rotation, fixedToPlayer = true) { //x and y are just to change already set value. sprite is fixed to player.
+		rotation += 89.67;
+
 		this.array.push({
 			type: muzzle_flash_sprite,
 			x: x,
@@ -25,7 +27,7 @@ var Particle = {
 
 			rotation: rotation,
 
-			fixedToPlayer: true,
+			fixedToPlayer: fixedToPlayer,
 
 			frame: 0
 		});
