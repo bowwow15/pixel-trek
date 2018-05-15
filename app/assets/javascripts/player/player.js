@@ -221,6 +221,8 @@ var Player = {
 				ServerWeapons.muzzleFlash(Player.x + Bullet.spawnX, Player.y + Bullet.spawnY, Player.facing);
 				ServerWeapons.newBullet("white", Player.x + Bullet.spawnX, Player.y + Bullet.spawnY, Player.facing);
 
+				View.shake(Player.facing + 89.67);
+
 				Player.gun.clip -= 1;
 
 				GameMath.queueEvent(Player.checkMouseDown, Date.now() + 100, null);

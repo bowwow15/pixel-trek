@@ -30,8 +30,6 @@ var Bullet = {
 			radian: radian,
 			expiration: expiration
 		});
-
-		View.shake(radian);
 	},
 
 	drawAll: function () {
