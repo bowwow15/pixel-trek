@@ -24,8 +24,8 @@ var Player = {
 		this.y_center = this.y - 17;
 
 		if (server) {
-			x = x;
-			y = y;
+			x = x - 11;
+			y = y - 17;
 		} else {
 			x = this.x_center;
 			y = this.y_center;

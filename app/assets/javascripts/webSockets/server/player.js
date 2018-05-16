@@ -9,6 +9,7 @@ var ServerPlayer = {
 		let addedPlayer = ServerPlayer.all[player];
 
 		Player.draw(x, y, addedPlayer.state, addedPlayer.facing, addedPlayer.currentFrame, true);
+		// console.log(addedPlayer.currentFrame);
 	},
 
 	spriteStep: function (player) {
