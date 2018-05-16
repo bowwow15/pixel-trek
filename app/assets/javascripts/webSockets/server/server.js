@@ -8,6 +8,8 @@ var Server = {
 				y: y,
 				state: state,
 				facing: 1,
+				currentFrame: 0,
+				frames: 8,
 				uuid: uuid
 			});
 		}

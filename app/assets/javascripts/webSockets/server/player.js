@@ -8,7 +8,15 @@ var ServerPlayer = {
 
 		let addedPlayer = ServerPlayer.all[player];
 
-		Player.draw(x, y, addedPlayer.state, addedPlayer.facing, true);
+		Player.draw(x, y, addedPlayer.state, addedPlayer.facing, addedPlayer.currentFrame, true);
+	},
+
+	spriteStep: function (player) {
+		ServerPlayer.all[player].currentFrame += 1;
+
+		if (ServerPlayer.all[player].currentFrame >= ServerPlayer.all[player].frames) {
+			ServerPlayer.all[player].currentFrame = 0;
+		}
 	},
 
 	drawAll: function () {

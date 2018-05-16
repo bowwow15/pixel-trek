@@ -19,7 +19,7 @@ var Player = {
 
 	weilding: false,
 
-	draw: function (x = 0, y = 0, state = "idle", facing = 1, server = false) {
+	draw: function (x = 0, y = 0, state = "idle", facing = 1, currentFrame = 0, server = false) {
 		this.x_center = this.x - 11;
 		this.y_center = this.y - 17;
 
@@ -31,6 +31,8 @@ var Player = {
 			y = this.y_center;
 
 			state = this.state;
+			facing = this.facing;
+			currentFrame = this.currentFrame;
 		}
  
 		ctx.fillStyle = 'red';
@@ -42,7 +44,7 @@ var Player = {
 			case "idle":
 				this.frames = 0;
 
-				if (this.facing < 0) {
+				if (facing < 0) {
 					if (this.weilding) {
 						player_sprite = player_idle_weild;
 					} else {
@@ -56,13 +58,13 @@ var Player = {
 					}
 				}
 
-				Sprite.draw(player_sprite, this.currentFrame, 21, 35, x + View.x, y + View.y, 21, 35, this.frames);
+				Sprite.draw(player_sprite, currentFrame, 21, 35, x + View.x, y + View.y, 21, 35, this.frames);
 				break;
 
 			case "running":
 				this.frames = 8;
 
-				if (this.facing < 0) {
+				if (facing < 0) {
 					if (this.weilding) {
 						player_sprite = player_run_weild;
 					} else {
@@ -82,7 +84,7 @@ var Player = {
 			case "jump":
 				this.frames = 2;
 
-				if (this.facing < 0) {
+				if (facing < 0) {
 					player_sprite = player_jump;
 				} else {
 					player_sprite = player_jump_reversed;
@@ -94,7 +96,7 @@ var Player = {
 			case "mid_air":
 				this.frames = 2;
 
-				if (this.facing < 0) {
+				if (facing < 0) {
 					player_sprite = player_mid_air;
 				} else {
 					player_sprite = player_mid_air_reversed;
@@ -106,7 +108,7 @@ var Player = {
 			case "landing":
 				this.frames = 1;
 
-				if (this.facing < 0) {
+				if (facing < 0) {
 					player_sprite = player_landing;
 				} else {
 					player_sprite = player_landing_reversed;
