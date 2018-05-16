@@ -14,8 +14,8 @@ var Server = {
 	},
 
 	removePlayer: function (uuid) {
-		let playerToRemove = this.players.map(function(e) { return e.uuid; }).indexOf(uuid);
-		this.players.splice(playerToRemove, 1); //deletes player
+		let playerToRemove = ServerPlayer.all.map(function(e) { return e.uuid; }).indexOf(uuid);
+		ServerPlayer.all.splice(playerToRemove, 1); //deletes player
 	},
 
 	movePlayer: function (uuid, x, y) {
@@ -24,8 +24,10 @@ var Server = {
 		if (ServerPlayer.all.length > 0) {
 			ServerPlayer.all[playerToMove].x += x;
 			ServerPlayer.all[playerToMove].y += y;
-		}
 
-		console.log(uuid);
+			ServerPlayer.all[playerToMove].state = "running";
+
+			ServerPlayer.spriteStep(playerToMove);
+		}
 	}
 };
