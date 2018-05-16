@@ -3,8 +3,12 @@ class Game < ApplicationController
 		ActionCable.server.broadcast "global", {action: "spawn_player", spawn: Spawn.getSpawnPoint(uuid)}
 	end
 
-	def self.movePlayer (uuid, player)
+	def self.removePlayer (uuid)
+		ActionCable.server.broadcast "global", {action: "remove_player", uuid: uuid}
+	end
 
+	def self.movePlayer (uuid, player)
+		ActionCable.server.broadcast "global", {action: "move_player", player: player}
 	end
 
 	def self.newBullet (uuid, bullet)

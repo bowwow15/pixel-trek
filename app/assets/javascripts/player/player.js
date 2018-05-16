@@ -137,6 +137,12 @@ var Player = {
 		if (!this.jumping) {
 			this.state = "running";	
 		}
+
+		App.game.movePlayer({
+			uuid: this.uuid,
+			x: x,
+			y: y
+		});
 	},
 
 	yBeforeJump: 0,

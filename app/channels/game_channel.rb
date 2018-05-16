@@ -7,6 +7,7 @@ class GameChannel < ApplicationCable::Channel
 
   def unsubscribed
     # Any cleanup needed when channel is unsubscribed
+    Game.removePlayer(uuid);
   end
 
   def movePlayer (data)

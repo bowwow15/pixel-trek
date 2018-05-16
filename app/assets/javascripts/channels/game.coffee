@@ -5,6 +5,7 @@ App.game = App.cable.subscriptions.create "GameChannel",
 
   disconnected: ->
     # Called when the subscription has been terminated by the server
+    @perform 'unsubscribed'
 
   received: (data) ->
     switch data.action
