@@ -7,4 +7,4 @@ test:
 production:
   adapter: redis
   url: redis://redistogo:3128a237dbc940744719af607d9d312b@cod.redistogo.com:9348/
-  # channel_prefix: pixelTrek_production
+  channel_prefix: pixelTrek_production
