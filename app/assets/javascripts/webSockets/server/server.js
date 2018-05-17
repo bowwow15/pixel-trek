@@ -1,6 +1,6 @@
 var Server = {
 	addPlayer: function (x, y, state, uuid) {
-		if (uuid != Player.uuid) { //makes sure it's a server player, and not your own player
+		if (uuid != Player.uuid || Player.uuid == null) { //makes sure it's a server player, and not your own player
 			ServerPlayer.all.push({
 				x: x,
 				y: y,
