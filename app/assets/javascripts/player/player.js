@@ -212,27 +212,27 @@ var Player = {
 
 	},
 
-	checkMouseDown: function () {
+	checkMouseDown: function (alreadyShot = false) {
 		if (Cursor.clicking) {
-			Player.shoot();
+			Player.shoot(alreadyShot);
 		} else {
-			Audio.stopAudio(airsoft_audio);
+			Audio.stopAudio(ar_audio);
 		}
 	},
 
-	shoot: function () {
+	shoot: function (alreadyShot = false) {
 		if (Weapon.holding == "hand" || Weapon.holding == null) {
 			Player.punch();
 		} else {
 			if (Player.gun.clip <= 0) {
-				Audio.stopAudio(airsoft_audio);
+				Audio.stopAudio(ar_audio);
 
 				if (!Player.reloading) {
 					//press r to reload
 					Text.add(window.innerWidth / 2, window.innerHeight / 4, "Out of ammo. Press R to reload.", "red", 15, Date.now() + 1500);
 				}
 			} else {
-				Audio.startAudio(airsoft_audio);
+				if (!alreadyShot) Audio.startAudio(ar_audio);
 
 				Player.weilding = true;
 
@@ -243,7 +243,7 @@ var Player = {
 
 				Player.gun.clip -= 1;
 
-				GameMath.queueEvent(Player.checkMouseDown, Date.now() + 100, null);
+				GameMath.queueEvent(Player.checkMouseDown, Date.now() + 100, true);
 			}
 		}
 	},
