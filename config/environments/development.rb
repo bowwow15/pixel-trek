@@ -49,5 +49,5 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  ENV["REDISTOGO_URL"] = 'redis://redistogo:3128a237dbc940744719af607d9d312b@cod.redistogo.com:9348/'
+  ENV["REDISTOGO_URL"] = 'redis://localhost:6379'
 end
