@@ -85,4 +85,6 @@ Rails.application.configure do
     logger.formatter = config.log_formatter
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
+
+  ENV["REDISTOGO_URL"] = 'redis://redistogo:3128a237dbc940744719af607d9d312b@cod.redistogo.com:9348/'
 end
