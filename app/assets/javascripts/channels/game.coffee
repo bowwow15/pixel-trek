@@ -1,7 +1,7 @@
 App.game = App.cable.subscriptions.create "GameChannel",
   connected: ->
     # Called when the subscription is ready for use on the server
-    @perform 'getPlayerUuid' #gets the players uuid from server... broadcasts from controller.
+    # @perform 'getPlayerUuid' #gets the players uuid from server... broadcasts from controller.
 
   disconnected: ->
     # Called when the subscription has been terminated by the server
