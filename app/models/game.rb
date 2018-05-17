@@ -1,6 +1,6 @@
 class Game < ApplicationController
 	def self.addPlayer (uuid)
-		ActionCable.server.broadcast "global", {action: "spawn_player", spawn: Spawn.getSpawnPoint(uuid)}
+		ActionCable.server.broadcast "global", {action: "spawn_player", spawn: Spawn.getSpawnPoint(uuid), uuid: uuid}
 	end
 
 	def self.removePlayer (uuid)
