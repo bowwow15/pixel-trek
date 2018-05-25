@@ -14,6 +14,10 @@ class GameChannel < ApplicationCable::Channel
   	Game.movePlayer(uuid, data['player'])
   end	
 
+  def stopMovingPlayer
+  	Game.stopMovingPlayer(uuid)
+  end
+
   def newBullet (data)
   	Game.newBullet(uuid, data['bullet'])
   end
@@ -24,5 +28,13 @@ class GameChannel < ApplicationCable::Channel
 
   def getPlayerUuid
   	Game.getPlayerUuid(uuid)
+  end
+
+  def getAllPlayers
+  	Game.getAllPlayers(uuid)
+  end
+
+  def checkTimeout
+  	Game.checkTimeout()
   end
 end

@@ -8,13 +8,16 @@ App.global = App.cable.subscriptions.create "GlobalChannel",
   received: (data) ->
   	switch data.action
 	  	when "spawn_player"
-	    	Server.addPlayer(data.spawn.x, data.spawn.y, data.spawn.state, data.spawn.uuid);
+	    	Server.addPlayer(data.spawn);
 
 	    when "remove_player"
 	    	Server.removePlayer(data.uuid);
 
 	    when "move_player"
-	    	Server.movePlayer(data.player.uuid, data.player.x, data.player.y);
+	    	Server.movePlayer(data.player);
+
+	    when "stop_moving_player"
+	    	Server.stopMovingPlayer(data.uuid);
 
 	    when "new_bullet"
 	    	Bullet.new(data.bullet.type, data.bullet.x, data.bullet.y, data.bullet.radian);

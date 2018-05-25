@@ -19,7 +19,7 @@ var Player = {
 
 	weilding: false,
 
-	draw: function (x = 0, y = 0, state = "idle", facing = 1, currentFrame = 0, server = false) {
+	draw: function (x = 0, y = 0, state = "idle", facing = 1, currentFrame = 0, weilding = false, server = false) {
 		this.x_center = this.x - 11;
 		this.y_center = this.y - 17;
 
@@ -32,6 +32,7 @@ var Player = {
 
 			state = this.state;
 			facing = this.facing;
+			weilding = this.weilding;
 			currentFrame = this.currentFrame;
 		}
  
@@ -45,13 +46,13 @@ var Player = {
 				this.frames = 0;
 
 				if (facing < 0) {
-					if (this.weilding) {
+					if (weilding) {
 						player_sprite = player_idle_weild;
 					} else {
 						player_sprite = player_idle;
 					}
 				} else {
-					if (this.weilding) {
+					if (weilding) {
 						player_sprite = player_idle_weild_reversed;
 					} else {
 						player_sprite = player_idle_reversed;
@@ -65,20 +66,20 @@ var Player = {
 				this.frames = 8;
 
 				if (facing < 0) {
-					if (this.weilding) {
+					if (weilding) {
 						player_sprite = player_run_weild;
 					} else {
 						player_sprite = player_run;
 					}
 				} else {
-					if (this.weilding) {
+					if (weilding) {
 						player_sprite = player_run_weild_reversed;
 					} else {
 						player_sprite = player_run_reversed;
 					}
 				}
 
-				Sprite.draw(player_sprite, this.currentFrame, 23, 35, x + View.x, y + View.y, 23, 35, this.frames);
+				Sprite.draw(player_sprite, currentFrame, 23, 35, x + View.x, y + View.y, 23, 35, this.frames);
 				break;
 
 			case "jump":
@@ -90,7 +91,7 @@ var Player = {
 					player_sprite = player_jump_reversed;
 				}
 
-				Sprite.draw(player_sprite, this.currentFrame, 17, 34, x + View.x, y + View.y, 17, 34, this.frames);
+				Sprite.draw(player_sprite, currentFrame, 17, 34, x + View.x, y + View.y, 17, 34, this.frames);
 				break;
 
 			case "mid_air":
@@ -102,7 +103,7 @@ var Player = {
 					player_sprite = player_mid_air_reversed;
 				}
 
-				Sprite.draw(player_sprite, this.currentFrame, 20, 35, x + View.x, y + View.y, 20, 35, this.frames);
+				Sprite.draw(player_sprite, currentFrame, 20, 35, x + View.x, y + View.y, 20, 35, this.frames);
 				break;
 
 			case "landing":
@@ -114,7 +115,7 @@ var Player = {
 					player_sprite = player_landing_reversed;
 				}
 
-				Sprite.draw(player_sprite, this.currentFrame, 20, 35, x + View.x, y + View.y, 20, 35, this.frames);
+				Sprite.draw(player_sprite, currentFrame, 20, 35, x + View.x, y + View.y, 20, 35, this.frames);
 				break;
 		}
 	},
@@ -141,7 +142,8 @@ var Player = {
 		App.game.movePlayer({
 			uuid: this.uuid,
 			x: x,
-			y: y
+			y: y,
+			facing: this.facing
 		});
 	},
 
@@ -293,5 +295,7 @@ var Player = {
 	stopMoving: function () {
 		this.currentFrame = 0;
 		this.state = "idle";
+
+		App.game.stopMovingPlayer();
 	}
 };

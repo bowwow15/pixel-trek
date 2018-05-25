@@ -8,7 +8,7 @@ var ServerPlayer = {
 
 		let addedPlayer = ServerPlayer.all[player];
 
-		Player.draw(x, y, addedPlayer.state, addedPlayer.facing, addedPlayer.currentFrame, true);
+		Player.draw(x, y, addedPlayer.state, addedPlayer.facing, addedPlayer.currentFrame, addedPlayer.weilding, true);
 		// console.log(addedPlayer.currentFrame);
 	},
 
@@ -23,6 +23,14 @@ var ServerPlayer = {
 	drawAll: function () {
 		this.all.forEach(function (element, index) {
 			ServerPlayer.draw(index);
+		});
+	},
+
+	getAllPlayers: function (player_uuid) {
+		player_uuid.forEach(function (element, index) {
+			ServerPlayer.all.push({
+				uuid: element
+			});
 		});
 	}
 };

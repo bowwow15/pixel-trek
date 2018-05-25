@@ -16,6 +16,11 @@ var Game = {
 			Step.smoothStep();
 		}, 1000/Game.smoothStep);
 
+		//Tells server to check for game timeout every 10 seconds
+		window.setInterval(function(){
+			App.game.checkTimeout();
+		}, 10000);
+
 		document.getElementById("loadingScreen").style.display = "none"; //hides loading screen
 
 		renderFrame();

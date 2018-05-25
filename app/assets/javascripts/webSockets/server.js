@@ -9,7 +9,5 @@ var Server = {
 				uuid: uuid
 			});
 		}
-
-		alert("player joined");
 	}
 };
