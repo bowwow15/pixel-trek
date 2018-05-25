@@ -32,3 +32,6 @@ App.game = App.cable.subscriptions.create "GameChannel",
 
   checkTimeout: ->
   	@perform 'checkTimeout'
+
+  resetPlayer: (player) ->
+  	@perform 'resetPlayer', player: player

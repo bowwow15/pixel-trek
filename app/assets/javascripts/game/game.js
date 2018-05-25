@@ -21,6 +21,12 @@ var Game = {
 			App.game.checkTimeout();
 		}, 10000);
 
+		//Resets player every 5 seconds
+		ServerPlayer.sendAbsolutePosition();
+		window.setInterval(function(){
+			ServerPlayer.sendAbsolutePosition();
+		}, 5000);
+
 		document.getElementById("loadingScreen").style.display = "none"; //hides loading screen
 
 		renderFrame();

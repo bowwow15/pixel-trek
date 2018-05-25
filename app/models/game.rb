@@ -45,4 +45,8 @@ class Game < ApplicationController
 	def self.checkTimeout
 
 	end
+
+	def self.resetPlayer (uuid, player)
+		ActionCable.server.broadcast "global", {action: "reset_player", player: player, uuid: uuid}
+	end
 end

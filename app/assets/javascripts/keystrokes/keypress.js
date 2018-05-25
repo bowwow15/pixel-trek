@@ -21,7 +21,9 @@ var Movement = {
 		}
 
 		if (this.x == 0 && this.y == 0) {
-			Player.stopMoving();
+      if (Player.state != "idle") {
+			 Player.stopMoving();
+      }
 		}
 
 		if (jumpKey) {

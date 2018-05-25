@@ -37,4 +37,8 @@ class GameChannel < ApplicationCable::Channel
   def checkTimeout
   	Game.checkTimeout()
   end
+
+  def resetPlayer (data)
+  	Game.resetPlayer(uuid, data['player'])
+  end
 end

@@ -13,6 +13,9 @@ App.global = App.cable.subscriptions.create "GlobalChannel",
 	    when "remove_player"
 	    	Server.removePlayer(data.uuid);
 
+	    when "reset_player"
+	    	ServerPlayer.reset(data.player, data.uuid);
+
 	    when "move_player"
 	    	Server.movePlayer(data.player);
 

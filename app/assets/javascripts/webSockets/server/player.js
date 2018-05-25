@@ -8,7 +8,9 @@ var ServerPlayer = {
 
 		let addedPlayer = ServerPlayer.all[player];
 
-		Player.draw(x, y, addedPlayer.state, addedPlayer.facing, addedPlayer.currentFrame, addedPlayer.weilding, true);
+		if (uuid != Player.uuid) {
+			Player.draw(x, y, addedPlayer.state, addedPlayer.facing, addedPlayer.currentFrame, addedPlayer.weilding, true);
+		}
 		// console.log(addedPlayer.currentFrame);
 	},
 
@@ -28,9 +30,26 @@ var ServerPlayer = {
 
 	getAllPlayers: function (player_uuid) {
 		player_uuid.forEach(function (element, index) {
-			ServerPlayer.all.push({
-				uuid: element
+			Server.addPlayer({
+				x: 0,
+				y: 0,
+				state: "idle",
+				uuid: element,
 			});
 		});
+	},
+
+	sendAbsolutePosition: function () {
+		App.game.resetPlayer({
+			x: Player.x, 
+			y: Player.y
+		});
+	},
+
+	reset: function (player, uuid) {
+		let playerToReset = ServerPlayer.all.map(function(e) { return e.uuid; }).indexOf(uuid);
+
+		ServerPlayer.all[playerToReset].x = player.x;
+		ServerPlayer.all[playerToReset].y = player.y;
 	}
 };
