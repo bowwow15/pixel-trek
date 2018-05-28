@@ -32,6 +32,15 @@ var Bullet = {
 
 			uuid: uuid
 		});
+
+		//cartridge ejection sprite
+
+		let cartridgeSpawnX = 9 * Math.cos(radian * Math.PI / 180); // coordinates for spawning bullet cartridges
+		let cartridgeSpawnY = 9 * Math.sin(radian * Math.PI / 180);
+
+		if (uuid == Player.uuid) {
+			Particle.cartridgeEject(Player.x + Math.round(cartridgeSpawnX), Player.y + Math.round(cartridgeSpawnY));
+		}
 	},
 
 	drawAll: function () {

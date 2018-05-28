@@ -1,5 +1,5 @@
 var Particle = {
-	frames: 6,
+	frames: 12,
 
 	array: [],
 
@@ -28,6 +28,20 @@ var Particle = {
 			rotation: rotation,
 
 			fixedToPlayer: fixedToPlayer,
+
+			frame: 0
+		});
+	},
+
+	cartridgeEject: function (x, y) {
+		this.array.push({
+			type: cartridge_eject_sprite,
+			x: x + Math.floor(Math.random() * (5 - 1)) - 3, // random spread
+			y: y + 5,
+
+			rotation: 0,
+
+			fixedToPlayer: false,
 
 			frame: 0
 		});

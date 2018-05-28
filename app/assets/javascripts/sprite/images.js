@@ -25,6 +25,11 @@ ak_47_sprite_reversed.src = "images/sprites/weapons/ak_47_reversed.png";
 
 //END GUNS
 
+//MISC.
+
+var cartridge_eject_sprite = new Image();
+cartridge_eject_sprite.src = "images/sprites/cartridge_eject.png";
+
 var blood_hit_sprite = new Image();
 blood_hit_sprite.src = "images/sprites/blood_hit.png";
 
