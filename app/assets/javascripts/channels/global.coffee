@@ -23,7 +23,13 @@ App.global = App.cable.subscriptions.create "GlobalChannel",
 	    	Server.stopMovingPlayer(data.uuid);
 
 	    when "new_bullet"
-	    	Bullet.new(data.bullet.type, data.bullet.x, data.bullet.y, data.bullet.radian);
+	    	Bullet.new(data.bullet.type, data.bullet.x, data.bullet.y, data.bullet.radian, data.uuid);
+
+	    when "delete_bullet"
+	    	Bullet.delete(data.index);
 
 	    when "muzzle_flash"
 	    	ServerWeapons.drawMuzzleFlash(0 + data.bullet.spawnX, 0 + data.bullet.spawnY, data.bullet.radian, data.uuid);
+
+	    when "add_particle"
+	    	Server.addParticle(data.particle.particle, data.particle.x, data.particle.y);

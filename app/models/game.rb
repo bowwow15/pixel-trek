@@ -19,11 +19,19 @@ class Game < ApplicationController
 	end
 
 	def self.newBullet (uuid, bullet)
-		ActionCable.server.broadcast "global", {action: "new_bullet", bullet: bullet}
+		ActionCable.server.broadcast "global", {action: "new_bullet", bullet: bullet, uuid: uuid}
+	end
+
+	def self.deleteBullet (uuid, index)
+		ActionCable.server.broadcast "global", {action: "delete_bullet", index: index, uuid: uuid}
 	end
 
 	def self.muzzleFlash (uuid, bullet)
 		ActionCable.server.broadcast "global", {action: "muzzle_flash", bullet: bullet, uuid: uuid}
+	end
+
+	def self.addParticle (uuid, particle)
+		ActionCable.server.broadcast "global", {action: "add_particle", particle: particle, uuid: uuid}
 	end
 
 	def self.getPlayerUuid (uuid)

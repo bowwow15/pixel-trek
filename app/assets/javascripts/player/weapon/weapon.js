@@ -2,11 +2,15 @@ var Weapon = {
 	spawnX: 0,
 	spawnY: 1,
 
-	holding: "hand",
+	all: ["ak_47"],
 
-	drawHands: function (hand1, hand2, image, radian) {
-		let playerX = Player.x + View.x;
-		let playerY = Player.y + View.y;
+	checkIfWeapon: function (holding) {
+		return (Weapon.all.indexOf(holding) > -1);
+	},
+
+	drawHands: function (player, hand1, hand2, image, radian) {
+		let playerX = player.x + View.x;
+		let playerY = player.y + View.y;
 
 		ctx.translate(playerX, playerY);
 		ctx.rotate(radian * Math.PI / 180);
@@ -17,7 +21,7 @@ var Weapon = {
 		let hand2X = playerX + hand2.x;
 		let hand2Y = playerY + hand2.y;
 
-		if (Player.facing >= 0) {
+		if (player.facing >= 0) {
 			hand1X = playerX - hand1.x - 5;
 			hand2X = playerX - hand2.x - 5;
 		}
@@ -29,10 +33,10 @@ var Weapon = {
 		ctx.resetTransform();
 	},
 
-	draw: function () {
+	draw: function (player) {
 		ctx.beginPath();
 
-		let radian = Player.facing + 89.67;
+		let radian = player.facing + 89.67;
 
 		let gun_sprite = ak_47_sprite;
 
@@ -47,7 +51,7 @@ var Weapon = {
 			height: 0
 		};
 
-		switch (this.holding) {
+		switch (player.holding) {
 			case "ak_47": //gun sprite 35 x 15
 				image = {width: 35, height: 15};
 				posX = -10;
@@ -61,7 +65,7 @@ var Weapon = {
 
 				gun_sprite = ak_47_sprite;
 
-				if (Player.facing >= 0) {
+				if (player.facing >= 0) {
 					gun_sprite = ak_47_sprite_reversed;
 
 					rotationCenterX = 35 - 10;
@@ -75,17 +79,19 @@ var Weapon = {
 				break;
 		}
 
-		ctx.translate((Player.x + View.x + posX + rotationCenterX), (Player.y + View.y + posY + rotationCenterY));
+		ctx.translate((player.x + View.x + posX + rotationCenterX), (player.y + View.y + posY + rotationCenterY));
 
 		ctx.rotate(radian * Math.PI / 180);
-		ctx.translate(-(Player.x + View.x + posX + rotationCenterX), -(Player.y + View.y + posY + rotationCenterY));
+		ctx.translate(-(player.x + View.x + posX + rotationCenterX), -(player.y + View.y + posY + rotationCenterY));
 
-		ctx.drawImage(gun_sprite, Player.x + View.x + posX, Player.y + View.y + posY);
+		ctx.drawImage(gun_sprite, player.x + View.x + posX, player.y + View.y + posY);
 
 		ctx.resetTransform();
 
-		if (Player.weilding) {
-			this.drawHands({
+		if (player.weilding) {
+			this.drawHands(
+			player,
+			{
 				x: -3,
 				y: 3
 			}, {

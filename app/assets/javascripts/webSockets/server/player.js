@@ -9,7 +9,7 @@ var ServerPlayer = {
 		let addedPlayer = ServerPlayer.all[player];
 
 		if (uuid != Player.uuid) {
-			Player.draw(x, y, addedPlayer.state, addedPlayer.facing, addedPlayer.currentFrame, addedPlayer.weilding, true);
+			Player.draw(ServerPlayer.all[player], true);
 		}
 		// console.log(addedPlayer.currentFrame);
 	},
@@ -34,6 +34,8 @@ var ServerPlayer = {
 				x: 0,
 				y: 0,
 				state: "idle",
+				weilding: false,
+				holding: "hand",
 				uuid: element,
 			});
 		});
@@ -49,7 +51,9 @@ var ServerPlayer = {
 	reset: function (player, uuid) {
 		let playerToReset = ServerPlayer.all.map(function(e) { return e.uuid; }).indexOf(uuid);
 
-		ServerPlayer.all[playerToReset].x = player.x;
-		ServerPlayer.all[playerToReset].y = player.y;
+		if (ServerPlayer.all[playerToReset]) {
+			ServerPlayer.all[playerToReset].x = player.x;
+			ServerPlayer.all[playerToReset].y = player.y;
+		}
 	}
 };

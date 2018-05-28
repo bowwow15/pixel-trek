@@ -22,8 +22,16 @@ class GameChannel < ApplicationCable::Channel
   	Game.newBullet(uuid, data['bullet'])
   end
 
+  def deleteBullet (data)
+  	Game.deleteBullet(uuid, data['index'])
+  end
+
   def muzzleFlash (data)
   	Game.muzzleFlash(uuid, data['bullet'])
+  end
+
+  def addParticle (data)
+  	Game.addParticle(uuid, data['particle'])
   end
 
   def getPlayerUuid

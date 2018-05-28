@@ -11,6 +11,7 @@ var Server = {
 				state: state,
 				facing: 1,
 				weilding: false,
+				holding: "hand",
 				currentFrame: 0,
 				frames: 8,
 				uuid: uuid
@@ -27,8 +28,11 @@ var Server = {
 		uuid = player.uuid;
 		x = player.x;
 		y = player.y;
+		state = player.state;
 		facing = player.facing;
-		
+		weilding = player.weilding;
+		holding = player.holding;
+
 		if (uuid != Player.uuid) { // if the player is not you...
 			let playerToMove = ServerPlayer.all.map(function(e) { return e.uuid; }).indexOf(uuid);
 
@@ -37,11 +41,19 @@ var Server = {
 				ServerPlayer.all[playerToMove].y += y;
 
 				ServerPlayer.all[playerToMove].frames = 8;
-				ServerPlayer.all[playerToMove].state = "running";
+				ServerPlayer.all[playerToMove].state = state;
 
 				ServerPlayer.all[playerToMove].facing = facing;
 
-				Step.spriteToggle(1, playerToMove);
+				ServerPlayer.all[playerToMove].weilding = weilding;
+				ServerPlayer.all[playerToMove].holding = holding;
+
+				if (player.state == "idle") {
+					Step.spriteToggle(0, playerToMove);
+					ServerPlayer.all[playerToMove].frames = 1;
+				} else {
+					Step.spriteToggle(1, playerToMove);
+				}
 			}
 		}
 	},
@@ -53,6 +65,14 @@ var Server = {
 			Step.spriteToggle(0, playerToMove);
 			ServerPlayer.all[playerToMove].frames = 1;
 			ServerPlayer.all[playerToMove].state = "idle";
+		}
+	},
+
+	addParticle: function (particle, x, y) {
+		switch (particle) {
+			case "blood":
+				Particle.blood(x, y);
+				break;
 		}
 	}
 };

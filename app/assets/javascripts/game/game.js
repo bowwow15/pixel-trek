@@ -32,7 +32,7 @@ var Game = {
 		renderFrame();
 
 		//default functions for testing...
-		Weapon.holding = "ak_47";
+		Player.holding = "ak_47";
 		Player.weilding = true;
 	},
 
@@ -41,5 +41,15 @@ var Game = {
     	MouseCoordinates.y = e.clientY;
 
     	MouseCoordinates.calculatePlayerFacing();
+
+    	App.game.movePlayer({
+			uuid: Player.uuid,
+			x: 0,
+			y: 0,
+			state: Player.state,
+			facing: Player.facing,
+			weilding: Player.weilding,
+			holding: Player.holding
+		});
 	}
 };	

@@ -17,13 +17,25 @@ var Player = {
 	facing: 1,
 	state: "idle",
 
-	weilding: false,
+	health: 100,
 
-	draw: function (x = 0, y = 0, state = "idle", facing = 1, currentFrame = 0, weilding = false, server = false) {
+	weilding: false,
+	holding: "hand",
+
+	draw: function (playerToDraw, server = false) {
 		this.x_center = this.x - 11;
 		this.y_center = this.y - 17;
 
 		if (server) {
+			x = playerToDraw.x;
+			y = playerToDraw.y;
+
+			state = playerToDraw.state;
+			facing = playerToDraw.facing;
+			currentFrame = playerToDraw.currentFrame;
+			weilding = playerToDraw.weilding;
+			holding = playerToDraw.holding;
+
 			x = x - 11;
 			y = y - 17;
 		} else {
@@ -33,6 +45,7 @@ var Player = {
 			state = this.state;
 			facing = this.facing;
 			weilding = this.weilding;
+			holding = this.holding;
 			currentFrame = this.currentFrame;
 		}
  
@@ -118,6 +131,8 @@ var Player = {
 				Sprite.draw(player_sprite, currentFrame, 20, 35, x + View.x, y + View.y, 20, 35, this.frames);
 				break;
 		}
+
+		Weapon.draw(playerToDraw);
 	},
 
 	move: function (x, y) {
@@ -143,7 +158,10 @@ var Player = {
 			uuid: this.uuid,
 			x: x,
 			y: y,
-			facing: this.facing
+			state: this.state,
+			facing: this.facing,
+			weilding: this.weilding,
+			holding: this.holding
 		});
 	},
 
@@ -223,7 +241,7 @@ var Player = {
 	},
 
 	shoot: function (alreadyShot = false) {
-		if (Weapon.holding == "hand" || Weapon.holding == null) {
+		if (!Weapon.checkIfWeapon(Player.holding)) {
 			Player.punch();
 		} else {
 			if (Player.gun.clip <= 0) {

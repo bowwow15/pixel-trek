@@ -7,7 +7,7 @@ var Bullet = {
 	spawnXwithoutPI: 0,
 	spawnYwithoutPI: 4,
 
-	new: function (type, x, y, radian) {
+	new: function (type, x, y, radian, uuid = null) {
 		let speed = 20.0; // pixels per step
 
 		radian += 89.67;
@@ -28,7 +28,9 @@ var Bullet = {
 			y_velocity: y_velocity,
 
 			radian: radian,
-			expiration: expiration
+			expiration: expiration,
+
+			uuid: uuid
 		});
 	},
 
@@ -55,6 +57,23 @@ var Bullet = {
 			} else {
 				Bullet.array.splice(index, 1); //deletes bullet
 			}
+
+			//detect player collision
+			let playerShot = Collision.check([element.x, element.y], [Player.x, Player.y], 5, 5, 35, 21);
+
+			if (playerShot && element.uuid != Player.uuid) {
+				App.game.addParticle({
+					particle: "blood",
+					x: element.x + 10,
+					y: element.y + 10
+				}); // adding bullet sprite dimensions to center the particle
+
+				App.game.deleteBullet(index);
+			}
 		});
+	},
+
+	delete: function (index) {
+		Bullet.array.splice(index, 1); //deletes bullet
 	}
 };

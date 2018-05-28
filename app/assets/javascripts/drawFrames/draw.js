@@ -5,11 +5,9 @@ var renderFrame = function () {
 	Terrain.draw();
 
 	ServerPlayer.drawAll();
-	Player.draw();
+	Player.draw(Player);
 
 	Bullet.drawAll();
-
-	Weapon.draw();
 
 	Particle.drawAll();
 

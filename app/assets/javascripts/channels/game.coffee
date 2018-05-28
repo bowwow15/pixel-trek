@@ -27,8 +27,14 @@ App.game = App.cable.subscriptions.create "GameChannel",
   newBullet: (bullet) ->
     @perform 'newBullet', bullet: bullet
 
+  deleteBullet: (index) ->
+   	@perform 'deleteBullet', index: index
+
   muzzleFlash: (bullet) ->
   	@perform 'muzzleFlash', bullet: bullet
+
+  addParticle: (particle) ->
+  	@perform 'addParticle', particle: particle
 
   checkTimeout: ->
   	@perform 'checkTimeout'
