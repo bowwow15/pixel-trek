@@ -62,12 +62,14 @@ var Player = {
 					if (weilding) {
 						player_sprite = player_idle_weild;
 					} else {
+						this.frames = 8;
 						player_sprite = player_idle;
 					}
 				} else {
 					if (weilding) {
 						player_sprite = player_idle_weild_reversed;
 					} else {
+						this.frames = 8;
 						player_sprite = player_idle_reversed;
 					}
 				}
