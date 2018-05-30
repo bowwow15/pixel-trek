@@ -28,6 +28,9 @@ App.global = App.cable.subscriptions.create "GlobalChannel",
 	    when "delete_bullet"
 	    	Bullet.delete(data.index);
 
+	    when "player_died"
+	    	Server.killPlayer(data.uuid);
+
 	    when "muzzle_flash"
 	    	ServerWeapons.drawMuzzleFlash(0 + data.bullet.spawnX, 0 + data.bullet.spawnY, data.bullet.radian, data.uuid);
 

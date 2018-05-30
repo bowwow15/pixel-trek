@@ -47,10 +47,24 @@ var Particle = {
 		});
 	},
 
+	corpse: function (x, y) {
+		this.array.push({
+			type: corpse_sprite,
+			x: x,
+			y: y + 5,
+
+			rotation: 0,
+
+			fixedToPlayer: false,
+
+			frame: 0
+		});
+	},
+
 	drawAll: function () {
 		this.array.forEach(function (element, index) {
-			let element_x_rendered = element.x;
-			let element_y_rendered = element.y;
+			let element_x_rendered = Math.round(element.x);
+			let element_y_rendered = Math.round(element.y);
 
 			if (element.fixedToPlayer) {
 				element_x_rendered += Player.x;

@@ -18,6 +18,8 @@ var Player = {
 	state: "idle",
 
 	health: 100,
+	dead: false,
+	timeOfDeath: 0,
 
 	weilding: false,
 	holding: "hand",
@@ -132,39 +134,49 @@ var Player = {
 
 				Sprite.draw(player_sprite, currentFrame, 20, 35, x + View.x, y + View.y, 20, 35, this.frames);
 				break;
+
+			case "dead":
+				// this.frames = 0;
+
+				// player_sprite = player_dead;
+
+				// Sprite.draw(player_sprite, currentFrame, 35, 21, x + View.x, y + 10 + View.y, 35, 21, this.frames);
+				break;
 		}
 
 		Weapon.draw(playerToDraw);
 	},
 
 	move: function (x, y) {
-		//calculate direction of player
-		MouseCoordinates.calculatePlayerFacing();
+		if (!Player.dead) {
+			//calculate direction of player
+			MouseCoordinates.calculatePlayerFacing();
 
-		//check collision with map edges
+			//check collision with map edges
 
-		let collision = Collision.inverseCheck([this.x, this.y], [0, 0], 21, 33, canvas.width, canvas.height);
+			let collision = Collision.inverseCheck([this.x, this.y], [0, 0], 21, 33, canvas.width, canvas.height);
 
-		if (!collision) {
-			this.x += x;
-			this.y += y;
+			if (!collision) {
+				this.x += x;
+				this.y += y;
 
-			View.move(x, y);
+				View.move(x, y);
+			}
+
+			if (!this.jumping) {
+				this.state = "running";	
+			}
+
+			App.game.movePlayer({
+				uuid: this.uuid,
+				x: x,
+				y: y,
+				state: this.state,
+				facing: this.facing,
+				weilding: this.weilding,
+				holding: this.holding
+			});
 		}
-
-		if (!this.jumping) {
-			this.state = "running";	
-		}
-
-		App.game.movePlayer({
-			uuid: this.uuid,
-			x: x,
-			y: y,
-			state: this.state,
-			facing: this.facing,
-			weilding: this.weilding,
-			holding: this.holding
-		});
 	},
 
 	yBeforeJump: 0,
@@ -191,7 +203,10 @@ var Player = {
 	},
 
 	reloading: false,
+	
 	addBullets: function (amount) {
+		Player.reloading = false;
+
 		if (amount < Player.gun.bullets) {
 			Player.gun.clip += amount;
 			Player.gun.bullets -= amount;
@@ -201,15 +216,14 @@ var Player = {
 	},
 
 	reload: function () {
-		if (Player.gun.clip <= 0) {
+		if (Player.gun.clip <= 0 && !Player.reloading) {
+			Player.reloading = true;
+
 			Text.add(window.innerWidth / 2, window.innerHeight / 3, "Reloading...", "black", 15, Date.now() + 1400);
 
 			Audio.startAudio(reload_audio);
-			Player.reloading = true;
 			GameMath.queueEvent(Player.addBullets, Date.now() + 1400, 20); //20 bullets reload, 2 seconds from now.
 		}
-
-		Player.reloading = false;
 	},
 
 	jump: function (velocity) {
@@ -309,13 +323,34 @@ var Player = {
 
 		jumpKey = false;
 
-		this.state = "idle";
+		if (!Player.dead) this.state = "idle";
 	},
 
 	stopMoving: function () {
 		this.currentFrame = 0;
-		this.state = "idle";
+		if (!Player.dead) this.state = "idle";
 
 		App.game.stopMovingPlayer();
+	},
+
+	die: function () {
+		Player.timeOfDeath = Date.now();
+
+		App.game.killPlayer();
+
+		Particle.corpse(Player.x, Player.y);
+
+		Player.state = "dead";
+		Player.weilding = false;
+		Player.holding = "hand";
+		Player.dead = true;
+	},
+
+	hurt: function (healthPoints, shooterUUID) {
+		Player.health -= healthPoints;
+
+		if (Player.health <= 0) {
+			Player.die();
+		}
 	}
 };

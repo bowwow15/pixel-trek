@@ -68,9 +68,26 @@ var Bullet = {
 			}
 
 			//detect player collision
-			let playerShot = Collision.check([element.x, element.y], [Player.x, Player.y], 5, 5, 35, 21);
+			let playerShot = false;
+			let shotUUID = null;
+			let BreakException = false;
 
-			if (playerShot && element.uuid != Player.uuid) {
+			var bulletX = element.x;
+			var bulletY = element.y;
+
+			try {
+				ServerPlayer.all.forEach(function (element, index) {
+					playerShot = Collision.check([bulletX, bulletY], [element.x, element.y], 5, 5, 35, 21);
+
+					shotUUID = element.uuid;
+
+					if (playerShot === true) throw BreakException;
+				});
+			} catch (e) {
+		      if (e !== BreakException) throw e;
+		    }
+
+			if (playerShot) {
 				App.game.addParticle({
 					particle: "blood",
 					x: element.x + 10,
@@ -78,6 +95,10 @@ var Bullet = {
 				}); // adding bullet sprite dimensions to center the particle
 
 				App.game.deleteBullet(index);
+				App.game.shotPlayer({
+					damage: 20,
+					shot_uuid: shotUUID
+				});
 			}
 		});
 	},

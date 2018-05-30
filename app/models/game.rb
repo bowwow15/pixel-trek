@@ -26,6 +26,17 @@ class Game < ApplicationController
 		ActionCable.server.broadcast "global", {action: "delete_bullet", index: index, uuid: uuid}
 	end
 
+	def self.killPlayer (uuid)
+		ActionCable.server.broadcast "global", {action: "player_died", uuid: uuid}
+	end
+
+	def self.shotPlayer (uuid, shot)
+		damage = shot["damage"]
+		shotUUID = shot["shot_uuid"]
+
+		ActionCable.server.broadcast "player_#{shotUUID}", {action: "player_shot", damage: damage, uuid: uuid}
+	end
+
 	def self.muzzleFlash (uuid, bullet)
 		ActionCable.server.broadcast "global", {action: "muzzle_flash", bullet: bullet, uuid: uuid}
 	end
@@ -43,7 +54,7 @@ class Game < ApplicationController
 
 		index = 0
 		players.each do |p|
-			players[index] = p.split("player_")[1] #gets uuid (after "player_")
+			players[index] = p.split("player_")[1] #gets uuid (after "player_" and before "_coordinates")
 			index += 1
 		end
 
@@ -56,5 +67,7 @@ class Game < ApplicationController
 
 	def self.resetPlayer (uuid, player)
 		ActionCable.server.broadcast "global", {action: "reset_player", player: player, uuid: uuid}
+
+		Map.sendMapChunksNearPlayer(uuid, player) #also sets player coordinates
 	end
 end

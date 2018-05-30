@@ -8,7 +8,6 @@ var Terrain = {
 		ctx.rect(0, 0, canvas.width, canvas.height);
 		ctx.fill();
 
-		//test
 		Chunk.loadAll();
 	}
 };

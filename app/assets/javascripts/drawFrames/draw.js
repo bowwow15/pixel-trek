@@ -13,7 +13,9 @@ var renderFrame = function () {
 
 	Text.drawAll();
 
-	if (Hud.visible) Hud.draw();
+	Health.draw();
+
+	Hud.draw();
 
 	//draw cursor
 	Cursor.draw(MouseCoordinates.coordsTimesPixelDensity().x, MouseCoordinates.coordsTimesPixelDensity().y);

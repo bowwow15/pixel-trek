@@ -21,11 +21,11 @@ var Game = {
 			App.game.checkTimeout();
 		}, 10000);
 
-		//Resets player every 5 seconds
+		//Resets player every 2 seconds
 		ServerPlayer.sendAbsolutePosition();
 		window.setInterval(function(){
 			ServerPlayer.sendAbsolutePosition();
-		}, 5000);
+		}, 2000);
 
 		document.getElementById("loadingScreen").style.display = "none"; //hides loading screen
 
@@ -37,19 +37,21 @@ var Game = {
 	},
 
 	mouseMove: function (e) {
-		MouseCoordinates.x = e.clientX;
-    	MouseCoordinates.y = e.clientY;
+		if (!Player.dead) {
+			MouseCoordinates.x = e.clientX;
+	    	MouseCoordinates.y = e.clientY;
 
-    	MouseCoordinates.calculatePlayerFacing();
+	    	MouseCoordinates.calculatePlayerFacing();
 
-    	App.game.movePlayer({
-			uuid: Player.uuid,
-			x: 0,
-			y: 0,
-			state: Player.state,
-			facing: Player.facing,
-			weilding: Player.weilding,
-			holding: Player.holding
-		});
+	    	App.game.movePlayer({
+				uuid: Player.uuid,
+				x: 0,
+				y: 0,
+				state: Player.state,
+				facing: Player.facing,
+				weilding: Player.weilding,
+				holding: Player.holding
+			});
+	    }
 	}
 };	

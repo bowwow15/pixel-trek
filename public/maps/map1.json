@@ -1,0 +1,229 @@
+[{
+	"tile" : "grass_tile",
+	"x" : 0,
+	"y" : 0
+},{
+	"tile" : "grass_tile",
+	"x" : 1,
+	"y" : 0
+},{
+	"tile" : "grass_tile",
+	"x" : 2,
+	"y" : 0
+},{
+	"tile" : "grass_tile",
+	"x" : 3,
+	"y" : 0
+},{
+	"tile" : "grass_tile",
+	"x" : 4,
+	"y" : 0
+},{
+	"tile" : "grass_tile",
+	"x" : 5,
+	"y" : 0
+},{
+	"tile" : "grass_tile",
+	"x" : 6,
+	"y" : 0
+},{
+	"tile" : "grass_tile",
+	"x" : 7,
+	"y" : 0
+},{
+	"tile" : "grass_tile",
+	"x" : 8,
+	"y" : 0
+},{
+	"tile" : "grass_tile",
+	"x" : 9,
+	"y" : 0
+},{
+	"tile" : "dirt_with_grass_tile",
+	"x" : 10,
+	"y" : 0
+},
+// --- FIRST ROW ---
+{
+	"tile" : "grass_tile",
+	"x" : 0,
+	"y" : 1
+},{
+	"tile" : "grass_tile",
+	"x" : 1,
+	"y" : 1
+},{
+	"tile" : "grass_tile",
+	"x" : 2,
+	"y" : 1
+},{
+	"tile" : "grass_tile",
+	"x" : 3,
+	"y" : 1
+},{
+	"tile" : "grass_tile",
+	"x" : 4,
+	"y" : 1
+},{
+	"tile" : "grass_tile",
+	"x" : 5,
+	"y" : 1
+},{
+	"tile" : "grass_tile",
+	"x" : 6,
+	"y" : 1
+},{
+	"tile" : "grass_tile",
+	"x" : 7,
+	"y" : 1
+},{
+	"tile" : "grass_tile",
+	"x" : 8,
+	"y" : 1
+},{
+	"tile" : "grass_tile",
+	"x" : 9,
+	"y" : 1
+},{
+	"tile" : "dirt_with_grass_tile",
+	"x" : 10,
+	"y" : 1
+},
+// --- SECOND ROW ---
+{
+	"tile" : "grass_tile",
+	"x" : 0,
+	"y" : 2
+},{
+	"tile" : "grass_tile",
+	"x" : 1,
+	"y" : 2
+},{
+	"tile" : "grass_tile",
+	"x" : 2,
+	"y" : 2
+},{
+	"tile" : "grass_tile",
+	"x" : 3,
+	"y" : 2
+},{
+	"tile" : "grass_tile",
+	"x" : 4,
+	"y" : 2
+},{
+	"tile" : "grass_tile",
+	"x" : 5,
+	"y" : 2
+},{
+	"tile" : "grass_tile",
+	"x" : 6,
+	"y" : 2
+},{
+	"tile" : "grass_tile",
+	"x" : 7,
+	"y" : 2
+},{
+	"tile" : "grass_tile",
+	"x" : 8,
+	"y" : 2
+},{
+	"tile" : "dirt_with_grass_tile",
+	"x" : 9,
+	"y" : 2
+},{
+	"tile" : "dirt_with_grass_tile",
+	"x" : 10,
+	"y" : 2
+},
+//  --- THIRD ROW ---
+{
+	"tile" : "grass_tile",
+	"x" : 0,
+	"y" : 3
+},{
+	"tile" : "grass_tile",
+	"x" : 1,
+	"y" : 3
+},{
+	"tile" : "grass_tile",
+	"x" : 2,
+	"y" : 3
+},{
+	"tile" : "grass_tile",
+	"x" : 3,
+	"y" : 3
+},{
+	"tile" : "grass_tile",
+	"x" : 4,
+	"y" : 3
+},{
+	"tile" : "grass_tile",
+	"x" : 5,
+	"y" : 3
+},{
+	"tile" : "grass_tile",
+	"x" : 6,
+	"y" : 3
+},{
+	"tile" : "grass_tile",
+	"x" : 7,
+	"y" : 3
+},{
+	"tile" : "dirt_with_grass_tile",
+	"x" : 8,
+	"y" : 3
+},{
+	"tile" : "dirt_with_grass_tile",
+	"x" : 9,
+	"y" : 3
+},{
+	"tile" : "dirt_tile",
+	"x" : 10,
+	"y" : 3
+},
+//  --- FOURTH ROW ---
+{
+	"tile" : "grass_tile",
+	"x" : 0,
+	"y" : 4
+},{
+	"tile" : "grass_tile",
+	"x" : 1,
+	"y" : 4
+},{
+	"tile" : "grass_tile",
+	"x" : 2,
+	"y" : 4
+},{
+	"tile" : "grass_tile",
+	"x" : 3,
+	"y" : 4
+},{
+	"tile" : "grass_tile",
+	"x" : 4,
+	"y" : 4
+},{
+	"tile" : "grass_tile",
+	"x" : 5,
+	"y" : 4
+},{
+	"tile" : "grass_tile",
+	"x" : 6,
+	"y" : 4
+},{
+	"tile" : "dirt_with_grass_tile",
+	"x" : 7,
+	"y" : 4
+},{
+	"tile" : "dirt_with_grass_tile",
+	"x" : 8,
+	"y" : 4
+},{
+	"tile" : "dirt_tile",
+	"x" : 9,
+	"y" : 4
+},{
+	"tile" : "dirt_tile",
+	"x" : 10,
+	"y" : 4
+}]

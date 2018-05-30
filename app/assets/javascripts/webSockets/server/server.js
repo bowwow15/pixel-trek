@@ -24,6 +24,18 @@ var Server = {
 		ServerPlayer.all.splice(playerToRemove, 1); //deletes player
 	},
 
+	killPlayer: function (uuid) {
+		let playerToKill = ServerPlayer.all.map(function(e) { return e.uuid; }).indexOf(uuid);
+		if (uuid != Player.uuid) {
+			Step.spriteToggle(0, playerToKill);
+			ServerPlayer.all[playerToKill].frames = 1;
+
+			Particle.corpse(ServerPlayer.all[playerToKill].x, ServerPlayer.all[playerToKill].y);
+
+			this.removePlayer(uuid);
+		}
+	},
+
 	movePlayer: function (player) {
 		uuid = player.uuid;
 		x = player.x;
@@ -33,9 +45,9 @@ var Server = {
 		weilding = player.weilding;
 		holding = player.holding;
 
-		if (uuid != Player.uuid) { // if the player is not you...
-			let playerToMove = ServerPlayer.all.map(function(e) { return e.uuid; }).indexOf(uuid);
+		let playerToMove = ServerPlayer.all.map(function(e) { return e.uuid; }).indexOf(uuid);
 
+		if (uuid != Player.uuid && ServerPlayer.all[playerToMove]) { // if the player is not you, and is alive...
 			if (ServerPlayer.all.length > 0) {
 				ServerPlayer.all[playerToMove].x += x;
 				ServerPlayer.all[playerToMove].y += y;
@@ -59,9 +71,9 @@ var Server = {
 	},
 
 	stopMovingPlayer: function (uuid) {
-		if (uuid != Player.uuid) {
-			let playerToMove = ServerPlayer.all.map(function(e) { return e.uuid; }).indexOf(uuid);
+		let playerToMove = ServerPlayer.all.map(function(e) { return e.uuid; }).indexOf(uuid);
 
+		if (uuid != Player.uuid && ServerPlayer.all[playerToMove]) {
 			Step.spriteToggle(0, playerToMove);
 			ServerPlayer.all[playerToMove].frames = 1;
 			ServerPlayer.all[playerToMove].state = "idle";
@@ -74,5 +86,12 @@ var Server = {
 				Particle.blood(x, y);
 				break;
 		}
+	},
+
+	requestChunks: function (x, y) {
+		App.game.requestChunks({
+			x: x,
+			y: y
+		});
 	}
 };

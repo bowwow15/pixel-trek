@@ -26,6 +26,14 @@ class GameChannel < ApplicationCable::Channel
   	Game.deleteBullet(uuid, data['index'])
   end
 
+  def killPlayer
+  	Game.killPlayer(uuid);
+  end
+
+  def shotPlayer (data)
+  	Game.shotPlayer(uuid, data['shot'])
+  end
+
   def muzzleFlash (data)
   	Game.muzzleFlash(uuid, data['bullet'])
   end

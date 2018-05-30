@@ -1,39 +1,43 @@
 var Chunk = {
 	tilesize: 20,
 
-	load: function (type, row) {
-		var current_tile_x = 0;
-		var current_tile_y = row * this.tilesize;
+	all: [], // each coordinate is multiplied by chunk size!
 
-		type.forEach(function (element, index) {
-			ctx.beginPath();
+	load: function (chunk, x, y) {
+		var current_tile_x = x * this.tilesize;
+		var current_tile_y = y * this.tilesize;
 
-			ctx.translate(current_tile_x, current_tile_y);
-			ctx.rotate(element.rotation);
-			ctx.translate(-current_tile_x, -current_tile_y);
+		ctx.beginPath();
 
-			ctx.drawImage(element.tile, current_tile_x + View.x, current_tile_y + View.y);
+		ctx.translate(current_tile_x, current_tile_y);
+		ctx.rotate(chunk.rotation);
+		ctx.translate(-current_tile_x, -current_tile_y);
 
-			current_tile_x += Chunk.tilesize; //offsets each tile by the size of the tile.
+		ctx.drawImage(chunk.tile, current_tile_x + View.x, current_tile_y + View.y);
 
-			ctx.resetTransform();
-		});
+		current_tile_x += Chunk.tilesize; //offsets each tile by the size of the tile.
+
+		ctx.resetTransform();
 	},
 
 	loadAll: function () {
-		for (row = 0; row < 20; row++) {
-			let terrainArray = [];
+		Chunk.all.forEach(function (element, index) {
+			Chunk.load({
+				tile: element.tile,
+				rotation: 0,
+			},
 
-			let rotation = 0;
+			element.x, element.y);
+		});
+	},
 
-			for (i = 0; i < 20; i++) {
-				terrainArray.push({
-					tile: grass_tile,
-					rotation: rotation
-				});
-			}
+	fromServer: function (chunks) {
+		Chunk.all = [];
 
-			this.load(terrainArray, row);
-		}
+		chunks.forEach(function(element, index) {
+			chunks[index].tile = eval(chunks[index].tile); // tile is rendered as string.
+
+			Chunk.all.push(element);
+		});
 	}
 };

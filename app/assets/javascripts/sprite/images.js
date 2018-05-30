@@ -25,7 +25,7 @@ ak_47_sprite_reversed.src = "images/sprites/weapons/ak_47_reversed.png";
 
 //END GUNS
 
-//MISC.
+//PARTICLES
 
 var cartridge_eject_sprite = new Image();
 cartridge_eject_sprite.src = "images/sprites/cartridge_eject.png";
@@ -35,6 +35,9 @@ blood_hit_sprite.src = "images/sprites/blood_hit.png";
 
 var muzzle_flash_sprite = new Image();
 muzzle_flash_sprite.src = "images/sprites/muzzle_flash.png";
+
+var corpse_sprite = new Image();
+corpse_sprite.src = "images/sprites/corpse.png";
 
 var player_run = new Image();
 player_run.src = "images/sprites/player_run.png";
@@ -71,8 +74,14 @@ player_landing.src = "images/sprites/player_landing.png";
 var player_landing_reversed = new Image();
 player_landing_reversed.src = "images/sprites/player_landing_reversed.png";
 
+var player_dead = new Image();
+player_dead.src = "images/sprites/player_dead.png";
+
 var dirt_tile = new Image();
 dirt_tile.src = "images/sprites/dirt.png";
+
+var dirt_with_grass_tile = new Image();
+dirt_with_grass_tile.src = "images/sprites/dirt_with_grass.png";
 
 var grass_tile = new Image();
 

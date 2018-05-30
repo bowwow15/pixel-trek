@@ -12,10 +12,18 @@ App.game = App.cable.subscriptions.create "GameChannel",
     switch data.action
     	when "player_uuid"
     		Player.uuid = data.uuid;
+
     	when "all_players"
     		ServerPlayer.getAllPlayers(data.players);
+
     	when "send_player_coordinates"
     		Server.movePlayer(eval(data.uuid), eval(data.coordinates));
+
+    	when "send_chunks"
+    		Chunk.fromServer(data.chunks);
+
+    	when "player_shot"
+    		Player.hurt(data.damage, data.uuid);
   
   
   movePlayer: (player) ->
@@ -26,6 +34,12 @@ App.game = App.cable.subscriptions.create "GameChannel",
   
   newBullet: (bullet) ->
     @perform 'newBullet', bullet: bullet
+
+  shotPlayer: (shot) ->
+  	@perform 'shotPlayer', shot: shot
+
+  killPlayer: ->
+  	@perform 'killPlayer'
 
   deleteBullet: (index) ->
    	@perform 'deleteBullet', index: index
